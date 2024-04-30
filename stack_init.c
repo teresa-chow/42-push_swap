@@ -6,7 +6,7 @@
 /*   By: tchow-so <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 16:23:48 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/04/30 16:33:45 by tchow-so         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:37:02 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,10 @@ static long	ft_atol(const char *str)
 	while (str[i] && (str[i] == ' ' || str[i] == '\t'
 		|| str [i] == '\n' || str[i] == '\r'
 		|| str[i] == '\v' || str[i] == '\f'))
-	
+		i++;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
+	{
+	}
 }
