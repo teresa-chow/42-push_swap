@@ -6,13 +6,16 @@
 /*   By: tchow-so <tchow-so@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 21:38:38 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/07/25 16:03:08 by tchow-so         ###   ########.fr       */
+/*   Updated: 2024/07/29 15:15:09 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*take the top element of one stack and put it at the top of the other
+- do nothing if empty*/
+
 #include "../inc/push_swap.h"
 
-/*take 1st element at top of b and put at top of a - do nothing if empty*/
+/*move top of b to top of a*/
 void	pa(t_stack_node **a, t_stack_node **b)
 {
 	if ((a && a->next) && (b && b->next))
@@ -28,7 +31,7 @@ void	pa(t_stack_node **a, t_stack_node **b)
 	return ;
 }
 
-/*take 1st element at top of a and put at top of b - do nothing if empty*/
+/*move top of a to top of b*/
 void	pb(t_stack_node **a, t_stack_node **b)
 {
 	if ((a && a->next) && (b && b->next))

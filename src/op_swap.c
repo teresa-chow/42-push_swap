@@ -6,17 +6,16 @@
 /*   By: tchow-so <tchow-so@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 21:40:17 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/07/25 15:06:55 by tchow-so         ###   ########.fr       */
+/*   Updated: 2024/07/29 15:09:41 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*swap the first 2 elements at the top of a stack*/
+
 #include "../inc/push_swap.h"
 
-/*swap the first 2 elements at the top of a stack*/
 static void	swap(t_stack_node **head)
 {
-//	if (!head || !head->next)
-//		return ;
 	*head = *(head->next);
 	(*head)->prev->prev = *head;
 	(*head)->prev->next = (*head)->next;
