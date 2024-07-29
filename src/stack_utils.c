@@ -6,7 +6,7 @@
 /*   By: tchow-so <tchow-so@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 18:16:05 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/07/29 13:53:29 by tchow-so         ###   ########.fr       */
+/*   Updated: 2024/07/29 14:59:08 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ t_stack_node	*stack_last(t_stack_node **stack)
 
 t_stack_node	*stack_max(t_stack_node **stack)
 {
-	long		max;
+	int		max;
 	t_stack_node	*max_node;
 
 	if (!stack)
 		return (NULL);
-	max = LONG_MIN;
+	max = INT_MIN;
 	while (stack->next)
 	{
 		if (stack->value > max)
@@ -61,12 +61,12 @@ t_stack_node	*stack_max(t_stack_node **stack)
 
 t_stack_node	*stack_min(t_stack_node **stack)
 {
-	long		min;
+	int		min;
 	t_stack_node	*min_node;
 
 	if (!stack)
 		return (NULL);
-	max = LONG_MAX;
+	min = INT_MAX;
 	while (stack->next)
 	{
 		if (stack->value < min)
