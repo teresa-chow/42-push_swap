@@ -6,7 +6,7 @@
 /*   By: tchow-so <tchow-so@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 18:16:05 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/07/25 15:09:10 by tchow-so         ###   ########.fr       */
+/*   Updated: 2024/07/29 13:53:29 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,3 @@ t_stack_node	*stack_min(t_stack_node **stack)
 	}
 	return (min_node);
 }
-
