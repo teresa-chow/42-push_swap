@@ -6,7 +6,7 @@
 /*   By: tchow-so <tchow-so@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:30:38 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/08/09 16:39:48 by tchow-so         ###   ########.fr       */
+/*   Updated: 2024/08/12 11:37:44 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,27 +23,36 @@ int	check_arg(char **argv)
 		return (0);
 }
 
-static int	check_syntax(char *argv)
+static int	check_syntax(char *arg)
 {
-	while (*argv++)
-		if ((argv != '+' && argv != '-') && (argv < '0' || argv > '9'))
+	int	i;
+
+	i = 0;
+	while (arg[i++])
+	{
+		if ((arg[0] != '+' && arg[0] != '-') && (!ft_isdigit(arg[0]))
 			return (0);
+		else if ((arg[0] == '+' || arg[0] == '-') && (!ft_isdigit(arg[1]))
+			return (0);
+		else if (!ft_isdigit(arg[i]))
+			return (0);
+	}
 	return (1);
 }
 
 /* nodup - no duplicate */
-static int	check_nodup(char **argv)
+static int	check_nodup(char **arg)
 {
 	int	i;
 	int	cmp;
 
 	i = 0;
-	while (argv[i++])
+	while (arg[i++])
 	{
 		cmp = i++;
-		while (argv[cmp++])
+		while (arg[cmp++])
 		{
-			if (ft_atol(argv[i]) == ft_atol(argv[cmp]))
+			if (ft_atol(arg[i]) == ft_atol(arg[cmp]))
 				return (0);
 		}
 	}
@@ -71,11 +80,11 @@ long	ft_atol(const char *str)
 	return (result * sign);
 }
 
-int	check_isspace(char *argv)
+int	check_isspace(char *arg)
 {
-	while (*argv++)
+	while (*arg++)
 	{
-		if (*argv == ' ')
+		if (*arg == ' ')
 			return (1);
 	}
 	return (0);	
