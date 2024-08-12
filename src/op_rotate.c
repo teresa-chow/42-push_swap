@@ -6,7 +6,7 @@
 /*   By: tchow-so <tchow-so@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 21:40:51 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/07/29 15:07:01 by tchow-so         ###   ########.fr       */
+/*   Updated: 2024/08/08 17:57:28 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "../inc/push_swap.h"
 
-static void rotate(t_stack_node **stack)
+static void	rotate(t_stack_node **stack)
 {
 	*stack = (*stack)->next;
 	(*stack)->prev->prev = stack_last(**stack);

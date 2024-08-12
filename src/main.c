@@ -6,7 +6,7 @@
 /*   By: tchow-so <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 10:57:11 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/07/25 14:11:35 by tchow-so         ###   ########.fr       */
+/*   Updated: 2024/08/08 17:38:19 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if ((argc == 1) || (argc == 2 && !argv[1][0]))
+	if ((argc == 1) || (argc == 2 && !argv[1][0])
+		|| (argc == 2 && !check_isspace(argv[1])))
 		return (write(2, "Error\n", 6));
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
