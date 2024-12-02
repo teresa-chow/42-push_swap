@@ -1,0 +1,14 @@
+*.md
+
+.vscode/
+.DS_Store
+*/.DS_Store
+
+.build/
+*/.build
+
+push_swap
+
+*/*/*.a
+*/*.swp
+*/*.swo
