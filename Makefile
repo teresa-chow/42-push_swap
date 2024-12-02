@@ -10,20 +10,30 @@
 #                                                                              #
 # **************************************************************************** #
 
-
-# ============================================================================ #
-# NAMES & PATHS                                                                #
-# ============================================================================ #
-
 NAME		= push_swap
 
-SRC		= #TODO
+# ============================================================================ #
+# FILES                                                                        #
+# ============================================================================ #
 
-BUILD_DIR	= .build
+SRC		= $(addprefix $(SRC_DIR)/, main.c check_arg.c stack_init.c \
+	stack_utils.c sort_check.c sort_nano.c mem_utils.c \
+	op_push.c op_reverse_rotate.c op_rotate.c op_swap.c)
 OBJS	 	= $(addprefix $(BUILD_DIR)/, $(notdir $(SRC:.c=.o)))
-
-LIBFT_DIR	= libft
 LIBFT_ARC	= $(LIBFT_DIR)/libft.a
+
+
+# ============================================================================ #
+# PATHS                                                                        #
+# ============================================================================ #
+
+INC_DIR		= include
+SRC_DIR 	= src
+BUILD_DIR	= .build
+LIBS_DIR	= libs
+
+# Libraries
+LIBFT_DIR	= $(LIBS_DIR)/libft
 
 
 # ============================================================================ #
@@ -32,7 +42,7 @@ LIBFT_ARC	= $(LIBFT_DIR)/libft.a
 
 CC	= cc
 CFLAGS	= -Wall -Wextra -Werror
-CFLAGS	+= -g
+#CFLAGS	+= -g
 
 MAKE	= make -C
 
@@ -49,22 +59,29 @@ MKDIR	= mkdir -p
 
 all: $(NAME)	## Compile push_swap
 
-bonus: #TODO	## Compile push_swap with bonus features
+$(NAME): $(LIBFT_ARC) $(BUILD_DIR) $(OBJS)
+	@printf "$(GRN)>> Generated object files$(RES)\n\n"
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_ARC) -o $(NAME)
+	@printf "$(GRN)>> Compiled push_swap$(RES)\n\n"
+
 
 $(BUILD_DIR):
 	$(MKDIR) $(BUILD_DIR)
 	@printf "$(GRN)>> Created .build/ directory for object files$(RES)\n\n"
 
-$(BUILD_DIR)/%.o: %.c
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(LIBFT_ARC) $(BUILD_DIR) $(OBJS)	
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_ARC) -o $(NAME)
-	@printf "$(GRN)>> Compiled Server$(RES)\n\n"
+# Library directories
+$(LIBFT_DIR):
+	git clone https://github.com/teresa-chow/42-libft-extended.git libs/libft
+	@printf "$(GRN)>> Cloned Libft$(RES)\n\n"
 
-$(LIBFT_ARC):
+# Library archives
+$(LIBFT_ARC): $(LIBFT_DIR)
 	$(MAKE) $(LIBFT_DIR)
 	@printf "$(GRN)>> Created Libft archive$(RES)\n\n"
+
 
 ##@ CLEAN-UP RULES
 
@@ -82,6 +99,27 @@ fclean: clean	## Remove executable files
 re: fclean all	## Purge and recompile
 
 
+##@ STANDARD COMPLIANCE CHECK
+
+norm:	## Execute norminette
+	norminette $(INC_DIR)/push_swap.h
+	norminette $(SRC_DIR)
+
+
+##@ LEAK CHECK
+
+valgrind:	## Run valgrind
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) 3 2 1
+
+
+##@ TOOL INSTALLATION
+
+install: ## Install norminette and valgrind
+	python3 -m pip install --upgrade pip setuptools
+	python3 -m pip install norminette
+	sudo apt install valgrind -y
+
+
 ##@ HELP
 
 help:	## Display this help info
@@ -95,7 +133,7 @@ help:	## Display this help info
 		substr($$0, 5) } ' Makefile
 	@printf "\n"
 
-.PHONY: all bonus clean fclean re help
+.PHONY: all clean fclean re help
 
 
 # ============================================================================ #
