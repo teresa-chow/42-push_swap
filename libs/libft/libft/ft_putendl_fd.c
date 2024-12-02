@@ -1,36 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_check.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchow-so <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 14:46:08 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/07/25 16:03:36 by tchow-so         ###   ########.fr       */
+/*   Created: 2023/10/26 13:49:58 by tchow-so          #+#    #+#             */
+/*   Updated: 2023/10/26 14:38:03 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
 
-int	sort_check(t_stack_node *stack)
+void	ft_putendl_fd(char *s, int fd)
 {
-	while (stack->next)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
-/*
-int	sort_rev_check(t_stack_node **stack) // useful ?
-{
-	*stack = stack_last(stack);
-	while ((*stack)->prev)
-	{
-		if ((*stack)->value > (*stack)->prev->value)
-			return(0);
-		*stack = (*stack)->prev;
-	}
-	return (1);
-}*/

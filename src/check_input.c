@@ -1,47 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_arg.c                                        :+:      :+:    :+:   */
+/*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchow-so <tchow-so@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tchow-so  <tchow-so@student.42porto.>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/07 11:30:38 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/08/12 11:37:44 by tchow-so         ###   ########.fr       */
+/*   Created: 2024/11/28 09:29:20 by tchow-so          #+#    #+#             */
+/*   Updated: 2024/12/02 14:21:09 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/push_swap.h"
+#include "../include/push_swap.h"
 
-static int	check_syntax(char *argv);
-static int	check_duplicate(char **argv);
-long	ft_atol(const char *str);
+//static int	check_syntax(char *argv);
+//static int	check_nodup(char **argv);
+//long	ft_atol(const char *str);
 
-int	check_arg(char **argv)
+int	check_input(int argc, char **argv)
 {
+	if (argc == 2 && check_space(argv[1]))
+	{
+		argv = ft_split(argv[1], ' ');
+		if (!argv)
+			return (write(2, "Error\n", 6));
+	}
+
 	//check_syntax
+	//check_limits
 	if (!check_nodup(argv))
 		return (0);
 }
 
-static int	check_syntax(char *arg)
+/*static int	check_syntax(char *arg)
 {
 	int	i;
 
 	i = 0;
 	while (arg[i++])
 	{
-		if ((arg[0] != '+' && arg[0] != '-') && (!ft_isdigit(arg[0]))
+		if (arg[0] != '+' && arg[0] != '-') && (!ft_isdigit(arg[0]))
 			return (0);
-		else if ((arg[0] == '+' || arg[0] == '-') && (!ft_isdigit(arg[1]))
+		else if (arg[0] == '+' || arg[0] == '-') && (!ft_isdigit(arg[1]))
 			return (0);
-		else if (!ft_isdigit(arg[i]))
+		else if (!ft_isdigit(&arg[i]))
 			return (0);
 	}
 	return (1);
-}
+}*/
 
 /* nodup - no duplicate */
-static int	check_nodup(char **arg)
+/*static int	check_nodup(char **arg)
 {
 	int	i;
 	int	cmp;
@@ -66,9 +74,9 @@ long	ft_atol(const char *str)
 
 	result = 0;
 	sign = 1;
-/*	while (*str == '\t' || *str == '\n' || *str == '\v' || *str == '\f'
+	while (*str == '\t' || *str == '\n' || *str == '\v' || *str == '\f'
 		|| *str == '\r' || *str == ' ')
-		*str++;*/
+		*str++;
 	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
@@ -78,14 +86,18 @@ long	ft_atol(const char *str)
 	while (ft_isdigit(*str++))
 		result = result * 10 + (*str - '0');
 	return (result * sign);
-}
+}*/
 
-int	check_isspace(char *arg)
+int	check_space(char *str)
 {
-	while (*arg++)
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		if (*arg == ' ')
+		if (str[i] == ' ')
 			return (1);
+		i++;
 	}
 	return (0);	
 }

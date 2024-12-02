@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_check.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchow-so <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 14:46:08 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/07/25 16:03:36 by tchow-so         ###   ########.fr       */
+/*   Created: 2023/11/06 13:16:28 by tchow-so          #+#    #+#             */
+/*   Updated: 2023/11/06 15:13:28 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
 
-int	sort_check(t_stack_node *stack)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	while (stack->next)
+	char			*str;
+	unsigned int	i;
+
+	str = malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
 	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
+		str[i] = (*f)(i, s[i]);
+		i++;
 	}
-	return (1);
+	str[i] = '\0';
+	return (str);
 }
-/*
-int	sort_rev_check(t_stack_node **stack) // useful ?
-{
-	*stack = stack_last(stack);
-	while ((*stack)->prev)
-	{
-		if ((*stack)->value > (*stack)->prev->value)
-			return(0);
-		*stack = (*stack)->prev;
-	}
-	return (1);
-}*/

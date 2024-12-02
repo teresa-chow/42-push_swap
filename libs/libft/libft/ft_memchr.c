@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_init.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchow-so <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tchow-so <tchow-so@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 16:23:48 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/07/29 15:29:32 by tchow-so         ###   ########.fr       */
+/*   Created: 2023/10/18 14:59:20 by tchow-so          #+#    #+#             */
+/*   Updated: 2024/03/28 16:59:27 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
 
-// stack_fill
-// check_arg
-// check_duplicate
-// free stack
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	*ptr;
+
+	ptr = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		if (ptr[i] == (unsigned char)c)
+			return (&ptr[i]);
+		i++;
+	}
+	return (NULL);
+}

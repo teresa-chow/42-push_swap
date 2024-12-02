@@ -13,28 +13,29 @@
 /* This is a program that sorts data on a stack, with a limited
 set of instructions. */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 int	main(int argc, char **argv)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
+	//t_stack_node	*a;
+	//t_stack_node	*b;
 
-	a = NULL;
-	b = NULL;
-	if ((argc == 1) || (argc == 2 && !argv[1][0])
-		|| (argc == 2 && !check_isspace(argv[1])))
-		return (write(2, "Error\n", 6));
-	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');
+//	a = NULL;
+//	b = NULL;
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
+		return (0);
+	check_input(argc, argv);
+	//return (write(2, "Error\n", 6));
+	//else if (argc == 2)
+	//	argv = ft_split(argv[1], ' ');
 	//stack_init
-	if (!sort_check(a))
+	/*if (!sort_check(a))
 	{
 		if (stack_size(a) >= 2 && stack_size(a) <= 5)
 			sort_nano(a, b);
 		else
 			sort_any(a, b);
-	}
+	}*/
 	//free_stack
 	return (0);
 }

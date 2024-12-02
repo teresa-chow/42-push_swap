@@ -13,7 +13,7 @@
 /*take the top element of one stack and put it at the top of the other
 - do nothing if empty*/
 
-#include "../inc/push_swap.h"
+#include "../include/push_swap.h"
 
 /*move top of b to top of a*/
 void	pa(t_stack_node **a, t_stack_node **b)

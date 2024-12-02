@@ -12,7 +12,7 @@
 
 /*shift up all elements of a stack by 1 - 1st becomes last*/
 
-#include "../inc/push_swap.h"
+#include "../include/push_swap.h"
 
 static void	rotate(t_stack_node **stack)
 {

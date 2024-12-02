@@ -12,7 +12,7 @@
 
 /*shift down all elements of a stack by 1 - last becomes first*/
 
-#include "../inc/push_swap.h"
+#include "../include/push_swap.h"
 
 static void	reverse_rotate(t_stack_node **stack)
 {

@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_init.c                                       :+:      :+:    :+:   */
+/*   mem_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchow-so <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tchow-so  <tchow-so@student.42porto.>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 16:23:48 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/07/29 15:29:32 by tchow-so         ###   ########.fr       */
+/*   Created: 2024/12/02 15:35:56 by tchow-so          #+#    #+#             */
+/*   Updated: 2024/12/02 15:35:56 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-// stack_fill
-// check_arg
-// check_duplicate
-// free stack
+void    free_strarray(char **array)
+{
+    int i;
+
+    i = 0;
+    while (array[i] != NULL)
+    {
+        free(array[i]);
+        i++;
+    }
+    return ;
+}

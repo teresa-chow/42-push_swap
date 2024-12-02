@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../include/push_swap.h"
 
 void	sort_nano(t_stack_node **a, t_stack_node **b)
 {

@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_check.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchow-so <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 14:46:08 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/07/25 16:03:36 by tchow-so         ###   ########.fr       */
+/*   Created: 2023/10/30 12:14:44 by tchow-so          #+#    #+#             */
+/*   Updated: 2023/10/30 14:20:53 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
 
-int	sort_check(t_stack_node *stack)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	while (stack->next)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
+	size_t	len;
+	char	*dst;
+
+	if (!s1 || !s2)
+		return (NULL);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	dst = malloc((len + 1) * sizeof(char));
+	if (!dst)
+		return (NULL);
+	ft_strlcpy(dst, s1, ft_strlen(s1) + 1);
+	ft_strlcat(dst, s2, len + 1);
+	return (dst);
 }
-/*
-int	sort_rev_check(t_stack_node **stack) // useful ?
-{
-	*stack = stack_last(stack);
-	while ((*stack)->prev)
-	{
-		if ((*stack)->value > (*stack)->prev->value)
-			return(0);
-		*stack = (*stack)->prev;
-	}
-	return (1);
-}*/

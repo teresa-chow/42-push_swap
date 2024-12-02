@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_check.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchow-so <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 14:46:08 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/07/25 16:03:36 by tchow-so         ###   ########.fr       */
+/*   Created: 2023/11/07 10:54:43 by tchow-so          #+#    #+#             */
+/*   Updated: 2023/11/07 11:18:15 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	unsigned int	i;
 
-int	sort_check(t_stack_node *stack)
-{
-	while (stack->next)
+	i = 0;
+	while (s[i])
 	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
+		(*f)(i, &s[i]);
+		i++;
 	}
-	return (1);
+	return ;
 }
-/*
-int	sort_rev_check(t_stack_node **stack) // useful ?
-{
-	*stack = stack_last(stack);
-	while ((*stack)->prev)
-	{
-		if ((*stack)->value > (*stack)->prev->value)
-			return(0);
-		*stack = (*stack)->prev;
-	}
-	return (1);
-}*/

@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_check.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchow-so <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 14:46:08 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/07/25 16:03:36 by tchow-so         ###   ########.fr       */
+/*   Created: 2023/11/09 08:39:06 by tchow-so          #+#    #+#             */
+/*   Updated: 2023/11/09 11:34:33 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
 
-int	sort_check(t_stack_node *stack)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	while (stack->next)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }
-/*
-int	sort_rev_check(t_stack_node **stack) // useful ?
-{
-	*stack = stack_last(stack);
-	while ((*stack)->prev)
-	{
-		if ((*stack)->value > (*stack)->prev->value)
-			return(0);
-		*stack = (*stack)->prev;
-	}
-	return (1);
-}*/

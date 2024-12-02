@@ -12,7 +12,7 @@
 
 /*swap the first 2 elements at the top of a stack*/
 
-#include "../inc/push_swap.h"
+#include "../include/push_swap.h"
 
 static void	swap(t_stack_node **head)
 {

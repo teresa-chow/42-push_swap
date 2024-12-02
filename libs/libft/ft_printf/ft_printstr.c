@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_check.c                                       :+:      :+:    :+:   */
+/*   ft_printstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchow-so <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 14:46:08 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/07/25 16:03:36 by tchow-so         ###   ########.fr       */
+/*   Created: 2023/11/13 15:11:08 by tchow-so          #+#    #+#             */
+/*   Updated: 2023/11/16 08:52:18 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "ft_printf.h"
 
-int	sort_check(t_stack_node *stack)
+int	ft_printstr(char *str)
 {
-	while (stack->next)
+	int	i;
+
+	i = 0;
+	if (!str)
+		str = "(null)";
+	while (str[i] != '\0')
 	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
+		ft_printchar(str[i]);
+		i++;
 	}
-	return (1);
+	return (i);
 }
-/*
-int	sort_rev_check(t_stack_node **stack) // useful ?
-{
-	*stack = stack_last(stack);
-	while ((*stack)->prev)
-	{
-		if ((*stack)->value > (*stack)->prev->value)
-			return(0);
-		*stack = (*stack)->prev;
-	}
-	return (1);
-}*/

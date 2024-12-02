@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_check.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchow-so <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 14:46:08 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/07/25 16:03:36 by tchow-so         ###   ########.fr       */
+/*   Created: 2023/11/09 14:27:06 by tchow-so          #+#    #+#             */
+/*   Updated: 2023/11/09 14:54:12 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
 
-int	sort_check(t_stack_node *stack)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	while (stack->next)
+	t_list	*tmp;
+	t_list	*node;
+
+	if (!lst)
+		return ;
+	node = *lst;
+	while (node != NULL)
 	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
+		tmp = node;
+		(*del)(node->content);
+		node = node->next;
+		free(tmp);
 	}
-	return (1);
+	*lst = NULL;
 }
-/*
-int	sort_rev_check(t_stack_node **stack) // useful ?
-{
-	*stack = stack_last(stack);
-	while ((*stack)->prev)
-	{
-		if ((*stack)->value > (*stack)->prev->value)
-			return(0);
-		*stack = (*stack)->prev;
-	}
-	return (1);
-}*/
