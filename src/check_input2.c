@@ -13,7 +13,7 @@
 #include "../include/push_swap.h"
 
 /* nodup - no duplicate */
-static int	check_nodup(char **arg)
+int	check_nodup(char **arg)
 {
 	int	i;
 	int	cmp;
