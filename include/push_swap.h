@@ -38,15 +38,13 @@ typedef struct	s_stack_node
 	struct s_stack_node	*prev;
 }		t_stack_node;
 
-/* =============================== PARSING ================================== */
-
-
-/* =========================== ERROR HANDLING =============================== */
-
+/* ======================= PARSING & ERROR HANDLING ========================= */
 int	check_input(int argc, char **argv);
 int	check_space(char *str);
-//check_arg
-//ft_atol
+long	ft_atol(const char *str);
+int	check_nodup(char **arg);
+void	printerr_exit(void);
+
 
 /* ============================= STACK UTILS ================================ */
 // Stack initiation
