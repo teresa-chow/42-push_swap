@@ -15,7 +15,7 @@
 static void	check_syntax(char *arg);
 static void	check_limits(char *arg);
 
-int	check_input(int argc, char **argv)
+char	**check_input(int argc, char **argv)
 {
 	int	i;
 
@@ -23,7 +23,7 @@ int	check_input(int argc, char **argv)
 	{
 		check_syntax(argv[1]);
 		check_limits(argv[1]);
-		return (0);
+		exit (EXIT_SUCCESS);
 	}
 	i = 1;
 	if (argc == 2 && check_space(argv[1]))
@@ -40,22 +40,23 @@ int	check_input(int argc, char **argv)
 		check_limits(argv[i]);
 		i++;
 	}
-	return (0);
+	return (argv);
 }
 
 static void	check_syntax(char *arg)
 {
 	int	i;
 
-	i = 0;
-	while (arg[i++])
+	i = 1;
+	while (arg[i] != '\0')
 	{
 		if ((arg[0] != '+' && arg[0] != '-') && (!ft_isdigit(arg[0])))
 			printerr_exit();
 		if ((arg[0] == '+' || arg[0] == '-') && (!ft_isdigit(arg[1])))
 			printerr_exit();
-		if (!ft_isdigit(&arg[i]))
+		if (!ft_isdigit(arg[i]))
 			printerr_exit();
+		i++;
 	}
 	return ;
 }
@@ -87,7 +88,7 @@ long	ft_atol(const char *str)
 	}
 	while (ft_isdigit(str[i]))
 	{
-		result = result * 10 + (&str[i] - '0');
+		result = result * 10 + (str[i] - '0');
 		i++;
 	}
 	return (result * sign);

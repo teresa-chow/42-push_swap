@@ -14,9 +14,9 @@
 
 #include "../include/push_swap.h"
 
-static void	reverse_rotate(t_stack_node **stack)
+static void	reverse_rotate(t_elem **stack)
 {
-	t_stack_node	*last_node;
+	t_elem	*last_node;
 
 	if (!stack || !stack->next)
 		return ;
@@ -28,21 +28,21 @@ static void	reverse_rotate(t_stack_node **stack)
 	*stack = last_node;
 }
 
-void	rra(t_stack_node **a)
+void	rra(t_elem **a)
 {
 	reverse_rotate(a);
 	write(1, "rra\n", 4);
 	return ;
 }
 
-void	rrb(t_stack_node **b)
+void	rrb(t_elem **b)
 {
 	reverse_rotate(b);
 	write(1, "rrb\n", 4);
 	return ;
 }
 
-void	rrr(t_stack_node **a, t_stack_node **b)
+void	rrr(t_elem **a, t_elem **b)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);

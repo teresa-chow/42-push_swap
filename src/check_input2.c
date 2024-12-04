@@ -13,22 +13,21 @@
 #include "../include/push_swap.h"
 
 /* nodup - no duplicate */
-int	check_nodup(char **arg)
+void	check_nodup(char **argv) //check
 {
 	int	i;
 	int	cmp;
 
 	i = 0;
-	while (arg[i++])
+	cmp = 1;
+	while (argv[cmp])
 	{
-		cmp = i++;
-		while (arg[cmp++])
-		{
-			if (ft_atol(arg[i]) == ft_atol(arg[cmp]))
-				return (0);
-		}
+		if (ft_atol(argv[i]) == ft_atol(argv[cmp]))
+			printerr_exit();
+		i++;
+		cmp++;
 	}
-	return (1);
+	return ;
 }
 
 int	check_space(char *str)

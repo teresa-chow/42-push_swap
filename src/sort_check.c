@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-int	sort_check(t_stack_node *stack)
+int	sort_check(t_elem *stack)
 {
 	while (stack->next)
 	{
@@ -23,7 +23,7 @@ int	sort_check(t_stack_node *stack)
 	return (1);
 }
 /*
-int	sort_rev_check(t_stack_node **stack) // useful ?
+int	sort_rev_check(t_elem **stack) // useful ?
 {
 	*stack = stack_last(stack);
 	while ((*stack)->prev)

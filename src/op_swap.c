@@ -14,7 +14,7 @@
 
 #include "../include/push_swap.h"
 
-static void	swap(t_stack_node **head)
+static void	swap(t_elem **head)
 {
 	*head = *(head->next);
 	(*head)->prev->prev = *head;
@@ -24,7 +24,7 @@ static void	swap(t_stack_node **head)
 	return ;
 }
 
-void	sa(t_stack_node **a)
+void	sa(t_elem **a)
 {
 	if (a && a->next)
 	{
@@ -34,7 +34,7 @@ void	sa(t_stack_node **a)
 	return ;
 }
 
-void	sb(t_stack_node **b)
+void	sb(t_elem **b)
 {
 	if (b && b->next)
 	{
@@ -44,7 +44,7 @@ void	sb(t_stack_node **b)
 	return ;
 }
 
-void	ss(t_stack_node **a, t_stack_node **b)
+void	ss(t_elem **a, t_elem **b)
 {
 	if ((a && a->next) && (b && b->next))
 	{

@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-void	sort_nano(t_stack_node **a, t_stack_node **b)
+void	sort_nano(t_elem **a, t_elem **b)
 {
 	if (stack_size(a) == 2)
 		sort_two(&a);
@@ -25,16 +25,16 @@ void	sort_nano(t_stack_node **a, t_stack_node **b)
 	return ;
 }
 
-void	sort_two(t_stack_node **a)
+void	sort_two(t_elem **a)
 {
 	if (!check_sort(a))
 		sa(a);
 	return ;
 }
 
-void	sort_three(t_stack_node **a)
+void	sort_three(t_elem **a)
 {
-	t_stack_node	*max_node;
+	t_elem	*max_node;
 
 	if (check_sort(a))
 		return ;
@@ -48,10 +48,10 @@ void	sort_three(t_stack_node **a)
 	return ;
 }
 
-void	sort_four(t_stack_node **a, t_stack_node **b)
+void	sort_four(t_elem **a, t_elem **b)
 {
-	t_stack_node	*min_node;
-	t_stack_node	*last_node;
+	t_elem	*min_node;
+	t_elem	*last_node;
 
 	if (check_sort(a))
 		return ;
@@ -69,10 +69,10 @@ void	sort_four(t_stack_node **a, t_stack_node **b)
 	return ;
 }
 
-void	sort_five(t_stack_node **a, t_stack_node **b)
+void	sort_five(t_elem **a, t_elem **b)
 {
-	t_stack_node	*min_node;
-	t_stack_node	*last_node;
+	t_elem	*min_node;
+	t_elem	*last_node;
 
 	if (check_sort(a))
 		return ;

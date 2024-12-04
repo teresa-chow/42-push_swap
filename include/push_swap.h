@@ -25,65 +25,65 @@
 	int	len;
 }		t_stack; */
 
-typedef struct	s_stack_node
+typedef struct	s_elem
 {
 	int		value;
-	int		current_index;
-	int		final_index;
-	int		cost;
-	int		above_median;
-	int		cheapest;
-	struct s_stack_node	*target_node;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
-}		t_stack_node;
+	//int		current_index;
+	//int		final_index;
+	//int		cost;
+	//int		above_median;
+	//int		cheapest;
+	//struct s_elem	*target_node;
+	struct s_elem	*next;
+	struct s_elem	*prev;
+}		t_elem;
 
 /* ======================= PARSING & ERROR HANDLING ========================= */
-int	check_input(int argc, char **argv);
+char	**check_input(int argc, char **argv);
 int	check_space(char *str);
-long	ft_atol(const char *str);
-int	check_nodup(char **arg);
+void	check_nodup(char **argv);
 void	printerr_exit(void);
-
+long	ft_atol(const char *str);
 
 /* ============================= STACK UTILS ================================ */
 // Stack initiation
+void    stack_init(int argc, char **argv, t_elem **a);
 // Node initiation
 // General use
-int	stack_size(t_stack_node **stack);
-t_stack_node	*stack_last(t_stack_node **stack);
-t_stack_node	*stack_max(t_stack_node **stack);
-t_stack_node	*stack_min(t_stack_node **stack);
+//int	stack_size(t_elem **stack);
+//t_elem	*stack_last(t_elem **stack);
+//t_elem	*stack_max(t_elem **stack);
+//t_elem	*stack_min(t_elem **stack);
 
 /* ======================= INSTRUCTIONS (OPERATIONS) ======================== */
 // Swap
-void	sa(t_stack_node **a);
-void	sb(t_stack_node **b);
-void	ss(t_stack_node **a, t_stack_node **b);
+//void	sa(t_elem **a);
+//void	sb(t_elem **b);
+//void	ss(t_elem **a, t_elem **b);
 // Push
-void	pa(t_stack_node **a, t_stack_node **b);
-void	pb(t_stack_node **a, t_stack_node **b);
+//void	pa(t_elem **a, t_elem **b);
+//void	pb(t_elem **a, t_elem **b);
 // Rotate
-void	ra(t_stack_node **a);
-void	rb(t_stack_node **b);
-void	rr(t_stack_node **a, t_stack_node **b);
+//void	ra(t_elem **a);
+//void	rb(t_elem **b);
+//void	rr(t_elem **a, t_elem **b);
 // Reverse rotate
-void	rra(t_stack_node **a);
-void	rrb(t_stack_node **b);
-void	rrr(t_stack_node **a, t_stack_node **b); 
+//void	rra(t_elem **a);
+//void	rrb(t_elem **b);
+//void	rrr(t_elem **a, t_elem **b); 
 
 /* ================================ SORTING ================================= */
 // Utils
-int	sort_check(t_stack_node *stack);
+//int	sort_check(t_elem *stack);
 // Algorithms
-void	sort_nano(t_stack_node **a, t_stack_node **b);
-void	sort_two(t_stack_node **a);
-void	sort_three(t_stack_node **a);
-void	sort_four(t_stack_node **a, t_stack_node **b);
-void	sort_five(t_stack_node **a, t_stack_node **b); 
-void	sort_any(t_stack_node **a, t_stack_node **b); // TODO
+//void	sort_nano(t_elem **a, t_elem **b);
+//void	sort_two(t_elem **a);
+//void	sort_three(t_elem **a);
+//void	sort_four(t_elem **a, t_elem **b);
+//void	sort_five(t_elem **a, t_elem **b); 
+//void	sort_any(t_elem **a, t_elem **b); // TODO
 
 /* ================================ MEMORY ================================= */
-void    free_strarray(char **array);
+//void    free_strarray(char **array);
 
 #endif

@@ -16,7 +16,7 @@
 #include "../include/push_swap.h"
 
 /*move top of b to top of a*/
-void	pa(t_stack_node **a, t_stack_node **b)
+void	pa(t_elem **a, t_elem **b)
 {
 	if ((a && a->next) && (b && b->next))
 	{
@@ -32,7 +32,7 @@ void	pa(t_stack_node **a, t_stack_node **b)
 }
 
 /*move top of a to top of b*/
-void	pb(t_stack_node **a, t_stack_node **b)
+void	pb(t_elem **a, t_elem **b)
 {
 	if ((a && a->next) && (b && b->next))
 	{

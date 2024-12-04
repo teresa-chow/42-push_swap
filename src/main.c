@@ -17,18 +17,15 @@ set of instructions. */
 
 int	main(int argc, char **argv)
 {
-	//t_stack_node	*a;
-	//t_stack_node	*b;
+	t_elem	**a;
+	//t_elem	*b;
 
-//	a = NULL;
-//	b = NULL;
+	a = NULL;
+	//b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (0);
-	check_input(argc, argv);
-	//return (write(2, "Error\n", 6));
-	//else if (argc == 2)
-	//	argv = ft_split(argv[1], ' ');
-	//stack_init
+	argv = check_input(argc, argv);
+	stack_init(argc, argv, a);
 	/*if (!sort_check(a))
 	{
 		if (stack_size(a) >= 2 && stack_size(a) <= 5)

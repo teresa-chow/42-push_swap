@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-int	stack_size(t_stack_node **stack)
+/*int	stack_size(t_elem **stack)
 {
 	int	node_count;
 
@@ -27,10 +27,10 @@ int	stack_size(t_stack_node **stack)
 	return (node_count);
 }
 
-t_stack_node	*stack_last(t_stack_node **stack)
+t_elem	*stack_last(t_elem **stack)
 {
 	int				last_index;
-	t_stack_node	*last_node;
+	t_elem	*last_node;
 
 	last_index = stack_size(**stack) - 1;
 	while (last_index--)
@@ -39,10 +39,10 @@ t_stack_node	*stack_last(t_stack_node **stack)
 	return (*last_node);
 }
 
-t_stack_node	*stack_max(t_stack_node **stack)
+t_elem	*stack_max(t_elem **stack)
 {
 	int				max;
-	t_stack_node	*max_node;
+	t_elem	*max_node;
 
 	if (!stack)
 		return (NULL);
@@ -59,10 +59,10 @@ t_stack_node	*stack_max(t_stack_node **stack)
 	return (max_node);
 }
 
-t_stack_node	*stack_min(t_stack_node **stack)
+t_elem	*stack_min(t_elem **stack)
 {
 	int				min;
-	t_stack_node	*min_node;
+	t_elem	*min_node;
 
 	if (!stack)
 		return (NULL);
@@ -77,4 +77,4 @@ t_stack_node	*stack_min(t_stack_node **stack)
 		stack = stack->next;
 	}
 	return (min_node);
-}
+}*/
