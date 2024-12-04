@@ -46,7 +46,6 @@ void	printerr_exit(void);
 long	ft_atol(const char *str);
 
 /* ============================= STACK UTILS ================================ */
-// Stack initiation
 void    stack_init(int argc, char **argv, t_elem **a);
 // Node initiation
 // General use
