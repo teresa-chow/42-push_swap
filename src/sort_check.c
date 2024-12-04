@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-int	sort_check(t_elem *stack)
+int	sort_check(t_elem **stack)
 {
 	while (stack->next)
 	{
