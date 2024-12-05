@@ -12,22 +12,23 @@
 
 #include "../include/push_swap.h"
 
-/*int	stack_size(t_elem **stack)
+int	list_size(t_elem **stack)
 {
-	int	node_count;
+	int	size;
 
-	node_count = 0;
 	if (!stack)
 		return (0);
+	size = 1;
 	while ((*stack)->next != NULL)
 	{
 		*stack = (*stack)->next;
-		node_count++;
+		size++;
 	}
-	return (node_count);
+	stack_start(stack);
+	return (size);
 }
 
-t_elem	*stack_last(t_elem **stack)
+/*t_elem	*stack_last(t_elem **stack)
 {
 	int				last_index;
 	t_elem	*last_node;

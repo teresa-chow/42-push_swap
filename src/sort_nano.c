@@ -12,27 +12,30 @@
 
 #include "../include/push_swap.h"
 
-void	sort_nano(t_elem **a, t_elem **b)
+void	sort_nano(t_elem **a)
 {
-	if (stack_size(a) == 2)
-		sort_two(&a);
-	else if (stack_size(a) == 3)
+	int	size;
+
+	size = list_size(a);
+	if (size == 2)
+		sort_two(a);
+	/*else if (size == 3)
 		sort_three(&a);
 	else if (stack_size(a) == 4)
 		sort_four(&a, &b);
 	else if (stack_size(a) == 5)
-		sort_five(&a, &b);
+		sort_five(&a, &b);*/
 	return ;
 }
 
 void	sort_two(t_elem **a)
 {
-	if (!check_sort(a))
+	if (!sort_check(a))
 		sa(a);
 	return ;
 }
 
-void	sort_three(t_elem **a)
+/*void	sort_three(t_elem **a)
 {
 	t_elem	*max_node;
 
@@ -89,4 +92,4 @@ void	sort_five(t_elem **a, t_elem **b)
 	sort_four(a, b);
 	pa(a, b);
 	return ;
-}
+}*/

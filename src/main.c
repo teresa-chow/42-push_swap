@@ -28,6 +28,7 @@ int	main(int argc, char **argv)
 	a = stack_init(argc, argv, a);
 	if (!sort_check(a))
 	{
+		sort_nano(a);
 		/*if (stack_size(a) >= 2 && stack_size(a) <= 5)
 			sort_nano(a, b);
 		else

@@ -15,7 +15,6 @@
 static int stack_size(int argc, char **argv);
 static t_elem   **stack_fill(int argc, char **argv, t_elem **a);
 static void add_elem(t_elem **a);
-static void stack_start(t_elem **a);
 
 t_elem    **stack_init(int argc, char **argv, t_elem **a)
 {
@@ -83,7 +82,7 @@ static void add_elem(t_elem **a)
     *a = (*a)->next;
 }
 
-static void stack_start(t_elem **a)
+void stack_start(t_elem **a)
 {
     while ((*a)->prev != NULL)
         *a = (*a)->prev;

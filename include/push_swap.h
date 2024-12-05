@@ -47,6 +47,8 @@ long	ft_atol(const char *str);
 
 /* ============================= STACK UTILS ================================ */
 t_elem    **stack_init(int argc, char **argv, t_elem **a);
+int	list_size(t_elem **stack);
+void stack_start(t_elem **a);
 // Node initiation
 // General use
 //int	stack_size(t_elem **stack);
@@ -56,7 +58,7 @@ t_elem    **stack_init(int argc, char **argv, t_elem **a);
 
 /* ======================= INSTRUCTIONS (OPERATIONS) ======================== */
 // Swap
-//void	sa(t_elem **a);
+void	sa(t_elem **a);
 //void	sb(t_elem **b);
 //void	ss(t_elem **a, t_elem **b);
 // Push
@@ -75,8 +77,8 @@ t_elem    **stack_init(int argc, char **argv, t_elem **a);
 // Utils
 int	sort_check(t_elem **stack);
 // Algorithms
-//void	sort_nano(t_elem **a, t_elem **b);
-//void	sort_two(t_elem **a);
+void	sort_nano(t_elem **a);
+void	sort_two(t_elem **a);
 //void	sort_three(t_elem **a);
 //void	sort_four(t_elem **a, t_elem **b);
 //void	sort_five(t_elem **a, t_elem **b); 

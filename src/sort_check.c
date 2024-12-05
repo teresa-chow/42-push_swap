@@ -14,11 +14,14 @@
 
 int	sort_check(t_elem **stack)
 {
-	while ((*stack)->next)
+	t_elem	**current;
+
+	current = stack;
+	while ((*current)->next)
 	{
-		if ((*stack)->value > (*stack)->next->value)
+		if ((*current)->value > (*current)->next->value)
 			return (0);
-		*stack = (*stack)->next;
+		*current = (*current)->next;
 	}
 	return (1);
 }

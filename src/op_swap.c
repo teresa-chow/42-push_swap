@@ -16,9 +16,9 @@
 
 static void	swap(t_elem **head)
 {
-	*head = *(head->next);
-	(*head)->prev->prev = *head;
+	*head = (*head)->next;
 	(*head)->prev->next = (*head)->next;
+	(*head)->prev->prev = *head;
 	(*head)->next = (*head)->prev;
 	(*head)->prev = NULL;
 	return ;
@@ -26,7 +26,7 @@ static void	swap(t_elem **head)
 
 void	sa(t_elem **a)
 {
-	if (a && a->next)
+	if (a && (*a)->next)
 	{
 		swap(a);
 		write(1, "sa\n", 3);
@@ -34,7 +34,7 @@ void	sa(t_elem **a)
 	return ;
 }
 
-void	sb(t_elem **b)
+/*void	sb(t_elem **b)
 {
 	if (b && b->next)
 	{
@@ -53,4 +53,4 @@ void	ss(t_elem **a, t_elem **b)
 		write(1, "ss\n", 3);
 	}
 	return ;
-}
+}*/

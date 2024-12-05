@@ -16,7 +16,7 @@
 #include "../include/push_swap.h"
 
 /*move top of b to top of a*/
-void	pa(t_elem **a, t_elem **b)
+/*void	pa(t_elem **a, t_elem **b)
 {
 	if ((a && a->next) && (b && b->next))
 	{
@@ -29,10 +29,10 @@ void	pa(t_elem **a, t_elem **b)
 		write(1, "pa\n", 3);
 	}
 	return ;
-}
+}*/
 
 /*move top of a to top of b*/
-void	pb(t_elem **a, t_elem **b)
+/*void	pb(t_elem **a, t_elem **b)
 {
 	if ((a && a->next) && (b && b->next))
 	{
@@ -45,4 +45,4 @@ void	pb(t_elem **a, t_elem **b)
 		write(1, "pb\n", 3);
 	}
 	return ;
-}
+}*/
