@@ -13,12 +13,13 @@
 #include "../include/push_swap.h"
 
 static int stack_size(int argc, char **argv);
+static t_elem   **stack_fill(int argc, char **argv, t_elem **a);
 static void add_elem(t_elem **a);
+static void stack_start(t_elem **a);
 
-void    stack_init(int argc, char **argv, t_elem **a)
+t_elem    **stack_init(int argc, char **argv, t_elem **a)
 {
     int size;
-    int i;
 
     size = stack_size(argc, argv);
     a = ft_calloc(size, sizeof(t_elem *));
@@ -30,15 +31,8 @@ void    stack_init(int argc, char **argv, t_elem **a)
         free(a);
         printerr_exit();
     }
-    i = 1;
-    if (argc == 2)
-        i = 0;
-    while (argv[i])
-    {
-        (*a)->value = ft_atoi(argv[i]);
-        add_elem(a);
-        i++;
-    }
+    a = stack_fill(argc, argv, a);
+    return (a);
 }
 
 static int stack_size(int argc, char **argv)
@@ -58,6 +52,25 @@ static int stack_size(int argc, char **argv)
     return (size);
 }
 
+static t_elem   **stack_fill(int argc, char **argv, t_elem **a)
+{
+    int i;
+
+    i = 1;
+    if (argc == 2)
+        i = 0;
+    while (argv[i])
+    {
+        (*a)->value = ft_atoi(argv[i]);
+        if (!argv[i + 1])
+            break;
+        add_elem(a);
+        i++;
+    }
+    stack_start(a);
+    return (a);
+}
+
 static void add_elem(t_elem **a)
 {
     t_elem *new;
@@ -65,6 +78,13 @@ static void add_elem(t_elem **a)
     new = ft_calloc(1, sizeof(t_elem));
     if (!new)
         printerr_exit();
+    new->prev = *a;
     (*a)->next = new;
     *a = (*a)->next;
+}
+
+static void stack_start(t_elem **a)
+{
+    while ((*a)->prev != NULL)
+        *a = (*a)->prev;
 }

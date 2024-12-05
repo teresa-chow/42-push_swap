@@ -46,7 +46,7 @@ void	printerr_exit(void);
 long	ft_atol(const char *str);
 
 /* ============================= STACK UTILS ================================ */
-void    stack_init(int argc, char **argv, t_elem **a);
+t_elem    **stack_init(int argc, char **argv, t_elem **a);
 // Node initiation
 // General use
 //int	stack_size(t_elem **stack);
@@ -73,7 +73,7 @@ void    stack_init(int argc, char **argv, t_elem **a);
 
 /* ================================ SORTING ================================= */
 // Utils
-//int	sort_check(t_elem *stack);
+int	sort_check(t_elem **stack);
 // Algorithms
 //void	sort_nano(t_elem **a, t_elem **b);
 //void	sort_two(t_elem **a);
