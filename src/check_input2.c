@@ -13,13 +13,18 @@
 #include "../include/push_swap.h"
 
 /* nodup - no duplicate */
-void	check_nodup(char **argv)
+void	check_nodup(int argc, char **argv)
 {
 	int	i;
 	int	cmp;
 
-	i = 0;
-	cmp = 1;
+	i = 1;
+	cmp = 2;
+	if (argc == 2)
+	{
+		i = 0;
+		cmp = 1;
+	}
 	while (argv[cmp])
 	{
 		if (ft_atol(argv[i]) == ft_atol(argv[cmp]))

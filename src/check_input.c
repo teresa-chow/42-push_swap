@@ -25,7 +25,6 @@ char	**check_input(int argc, char **argv)
 		check_limits(argv[1]);
 		exit (EXIT_SUCCESS);
 	}
-	i = 1;
 	if (argc == 2 && check_space(argv[1]))
 	{
 		argv = ft_split(argv[1], ' ');
@@ -33,7 +32,8 @@ char	**check_input(int argc, char **argv)
 			printerr_exit();
 		i = 0;
 	}
-	check_nodup(argv);
+	check_nodup(argc, argv);
+	i = 1;
 	while (argv[i])
 	{
 		check_syntax(argv[i]);
@@ -47,8 +47,8 @@ static void	check_syntax(char *arg)
 {
 	int	i;
 
-	i = 1;
-	while (arg[i] != '\0')
+	i = 0;
+	while (arg[i])
 	{
 		if ((arg[0] != '+' && arg[0] != '-') && (!ft_isdigit(arg[0])))
 			printerr_exit();
@@ -66,7 +66,7 @@ static void	check_limits(char *arg)
 	long	input;
 
 	input = ft_atol(arg);
-	if (input < -2147483648 || input > 2147483647)
+	if (input < INT_MIN || input > INT_MAX)
 		printerr_exit();
 	return ;
 }

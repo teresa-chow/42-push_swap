@@ -41,7 +41,7 @@ typedef struct	s_elem
 /* ======================= PARSING & ERROR HANDLING ========================= */
 char	**check_input(int argc, char **argv);
 int	check_space(char *str);
-void	check_nodup(char **argv);
+void	check_nodup(int argc, char **argv);
 void	printerr_exit(void);
 long	ft_atol(const char *str);
 

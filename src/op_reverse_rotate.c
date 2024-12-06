@@ -19,11 +19,11 @@ static void	reverse_rotate(t_elem **stack)
 	t_elem	*last_node;
 
 	last_node = stack_last(stack);
-	(*stack)->prev = last_node;
 	last_node->next = *stack;
+	(*stack)->prev = last_node;
 	last_node->prev->next = NULL;
-	last_node->prev = NULL;
 	*stack = last_node;
+	(*stack)->prev = NULL;
 }
 
 void	rra(t_elem **a)

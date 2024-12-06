@@ -39,7 +39,6 @@ void	sort_three(t_elem **a)
 {
 	t_elem	*max_node;
 
-	printf("sort_check(a): %d\n", sort_check(a));
 	if (sort_check(a))
 		return ;
 	max_node = stack_max(a);
@@ -61,12 +60,11 @@ void	sort_four(t_elem **a, t_elem **b)
 		return ;
 	min_node = stack_min(a);
 	last_node = stack_last(a);
-	printf("min_node->value: %d | last_node->value: %d\n", min_node->value, last_node->value);
 	while ((*a != min_node) && (min_node != last_node))
 		ra(a);
 	if (min_node == last_node)
 		rra(a);
-	if (sort_check(a))
+	if (printf("sort_check(a): %d\n", sort_check(a)))
 		return ;
 	b = ft_calloc(1, sizeof(t_elem *));
 	*b = ft_calloc(1, sizeof(t_elem));

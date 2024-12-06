@@ -85,6 +85,5 @@ t_elem	*stack_min(t_elem **stack)
 		}
 		current = current->next;
 	}
-	printf("min_node->value: %d\n", min_node->value);
 	return (min_node);
 }

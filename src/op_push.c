@@ -31,19 +31,20 @@ void	pa(t_elem **a, t_elem **b)
 /* move top of a to top of b */
 void	pb(t_elem **a, t_elem **b)
 {
-	if (*b == NULL)
+	if (!(*b)->prev)
 	{
 		*b = *a;
+		*a = (*a)->next;
 		(*b)->next = NULL;
+		(*b)->prev = NULL;
 	}
 	else
 	{
 		(*b)->prev = *a;
+		*a = (*a)->next;
 		(*b)->prev->next = *b;
 		*b = (*b)->prev;
 	}
-	(*b)->prev = NULL;
-	*a = (*a)->next;
 	(*a)->prev = NULL;
 	write(1, "pb\n", 3);
 	return ;
