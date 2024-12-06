@@ -48,39 +48,39 @@ long	ft_atol(const char *str);
 /* ============================= STACK UTILS ================================ */
 t_elem    **stack_init(int argc, char **argv, t_elem **a);
 int	list_size(t_elem **stack);
-void stack_start(t_elem **a);
 // Node initiation
 // General use
 //int	stack_size(t_elem **stack);
-//t_elem	*stack_last(t_elem **stack);
-//t_elem	*stack_max(t_elem **stack);
-//t_elem	*stack_min(t_elem **stack);
+void stack_start(t_elem **a);
+t_elem	*stack_max(t_elem **stack);
+t_elem	*stack_last(t_elem **stack);
+t_elem	*stack_min(t_elem **stack);
 
 /* ======================= INSTRUCTIONS (OPERATIONS) ======================== */
 // Swap
 void	sa(t_elem **a);
-//void	sb(t_elem **b);
-//void	ss(t_elem **a, t_elem **b);
+void	sb(t_elem **b);
+void	ss(t_elem **a, t_elem **b);
 // Push
-//void	pa(t_elem **a, t_elem **b);
-//void	pb(t_elem **a, t_elem **b);
+void	pa(t_elem **a, t_elem **b);
+void	pb(t_elem **a, t_elem **b);
 // Rotate
-//void	ra(t_elem **a);
-//void	rb(t_elem **b);
-//void	rr(t_elem **a, t_elem **b);
+void	ra(t_elem **a);
+void	rb(t_elem **b);
+void	rr(t_elem **a, t_elem **b);
 // Reverse rotate
-//void	rra(t_elem **a);
-//void	rrb(t_elem **b);
-//void	rrr(t_elem **a, t_elem **b); 
+void	rra(t_elem **a);
+void	rrb(t_elem **b);
+void	rrr(t_elem **a, t_elem **b); 
 
 /* ================================ SORTING ================================= */
 // Utils
 int	sort_check(t_elem **stack);
 // Algorithms
-void	sort_nano(t_elem **a);
+void	sort_nano(t_elem **a, t_elem **b);
 void	sort_two(t_elem **a);
-//void	sort_three(t_elem **a);
-//void	sort_four(t_elem **a, t_elem **b);
+void	sort_three(t_elem **a);
+void	sort_four(t_elem **a, t_elem **b);
 //void	sort_five(t_elem **a, t_elem **b); 
 //void	sort_any(t_elem **a, t_elem **b); // TODO
 

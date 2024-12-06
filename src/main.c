@@ -18,20 +18,21 @@ set of instructions. */
 int	main(int argc, char **argv)
 {
 	t_elem	**a;
-	//t_elem	**b;
+	t_elem	**b;
+	int	size;
 
 	a = NULL;
-	//b = NULL;
+	b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (0);
 	argv = check_input(argc, argv);
 	a = stack_init(argc, argv, a);
+	size = list_size(a);
 	if (!sort_check(a))
 	{
-		sort_nano(a);
-		/*if (stack_size(a) >= 2 && stack_size(a) <= 5)
+		if (size >= 2 && size <= 5)
 			sort_nano(a, b);
-		else
+		/*else
 			sort_any(a, b);*/
 	}
 	//free_stack

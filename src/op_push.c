@@ -10,39 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*take the top element of one stack and put it at the top of the other
-- do nothing if empty*/
+/* take the top element of one stack and put it at the top of the other
+- do nothing if empty */
 
 #include "../include/push_swap.h"
 
-/*move top of b to top of a*/
-/*void	pa(t_elem **a, t_elem **b)
+/* move top of b to top of a */
+void	pa(t_elem **a, t_elem **b)
 {
-	if ((a && a->next) && (b && b->next))
-	{
-		(*a)->prev = *b;
-		(*a)->prev->next = *a;
-		*a = (*a)->prev;
-		(*a)->prev = NULL;
-		*b = (*b)->next;
-		(*b)->prev = NULL;
-		write(1, "pa\n", 3);
-	}
+	(*a)->prev = *b;
+	(*a)->prev->next = *a;
+	*a = (*a)->prev;
+	(*a)->prev = NULL;
+	*b = (*b)->next;
+	(*b)->prev = NULL;
+	write(1, "pa\n", 3);
 	return ;
-}*/
+}
 
-/*move top of a to top of b*/
-/*void	pb(t_elem **a, t_elem **b)
+/* move top of a to top of b */
+void	pb(t_elem **a, t_elem **b)
 {
-	if ((a && a->next) && (b && b->next))
+	if (*b == NULL)
+	{
+		*b = *a;
+		(*b)->next = NULL;
+	}
+	else
 	{
 		(*b)->prev = *a;
 		(*b)->prev->next = *b;
 		*b = (*b)->prev;
-		(*b)->prev = NULL;
-		*a = (*a)->next;
-		(*a)->prev = NULL;
-		write(1, "pb\n", 3);
 	}
+	(*b)->prev = NULL;
+	*a = (*a)->next;
+	(*a)->prev = NULL;
+	write(1, "pb\n", 3);
 	return ;
-}*/
+}

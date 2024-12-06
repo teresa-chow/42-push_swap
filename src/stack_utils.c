@@ -14,48 +14,53 @@
 
 int	list_size(t_elem **stack)
 {
+	t_elem	*current;
 	int	size;
 
 	if (!stack)
 		return (0);
+	current = *stack;
 	size = 1;
-	while ((*stack)->next != NULL)
+	while (current->next != NULL)
 	{
-		*stack = (*stack)->next;
+		current = current->next;
 		size++;
 	}
-	stack_start(stack);
 	return (size);
 }
 
-/*t_elem	*stack_last(t_elem **stack)
+t_elem	*stack_last(t_elem **stack)
 {
 	int				last_index;
+	t_elem	*current;
 	t_elem	*last_node;
 
-	last_index = stack_size(**stack) - 1;
+	last_index = list_size(stack) - 1;
+	current = *stack;
 	while (last_index--)
-		*stack = (*stack)->next;
-	last_node = *stack;
-	return (*last_node);
+		current = current->next;
+	last_node = current;
+	return (last_node);
 }
 
 t_elem	*stack_max(t_elem **stack)
 {
 	int				max;
+	t_elem	*current;
 	t_elem	*max_node;
 
 	if (!stack)
 		return (NULL);
 	max = INT_MIN;
-	while (stack->next)
+	current = *stack;
+	while (current->next)
 	{
-		if (stack->value > max)
+		if (current->value > max)
 		{
-			max = stack->value;
-			max_node = stack;
+			max = current->value;
+			max_node = current;
 		}
-		stack = stack->next;
+		current = current->next;
 	}
 	return (max_node);
 }
@@ -63,19 +68,23 @@ t_elem	*stack_max(t_elem **stack)
 t_elem	*stack_min(t_elem **stack)
 {
 	int				min;
+	t_elem	*current;
 	t_elem	*min_node;
 
 	if (!stack)
 		return (NULL);
 	min = INT_MAX;
-	while (stack->next)
+	current = *stack;
+	min_node = NULL;
+	while (current != NULL)
 	{
-		if (stack->value < min)
+		if (current->value < min)
 		{
-			min = stack->value;
-			min_node = stack;
+			min = current->value;
+			min_node = current;
 		}
-		stack = stack->next;
+		current = current->next;
 	}
+	printf("min_node->value: %d\n", min_node->value);
 	return (min_node);
-}*/
+}

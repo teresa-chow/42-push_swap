@@ -26,31 +26,22 @@ static void	swap(t_elem **head)
 
 void	sa(t_elem **a)
 {
-	if (a && (*a)->next)
-	{
-		swap(a);
-		write(1, "sa\n", 3);
-	}
+	swap(a);
+	write(1, "sa\n", 3);
 	return ;
 }
 
-/*void	sb(t_elem **b)
+void	sb(t_elem **b)
 {
-	if (b && b->next)
-	{
-		swap(b);
-		write(1, "sb\n", 3);
-	}
+	swap(b);
+	write(1, "sb\n", 3);
 	return ;
 }
 
 void	ss(t_elem **a, t_elem **b)
 {
-	if ((a && a->next) && (b && b->next))
-	{
-		swap(a);
-		swap(b);
-		write(1, "ss\n", 3);
-	}
+	swap(a);
+	swap(b);
+	write(1, "ss\n", 3);
 	return ;
-}*/
+}
