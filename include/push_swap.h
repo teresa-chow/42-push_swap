@@ -36,7 +36,6 @@ long	ft_atol(const char *str);
 /* ============================= STACK UTILS ================================ */
 // List initiation
 t_elem    **stack_init(int argc, char **argv, t_elem **a);
-void    stack_init_b(t_elem **b);
 // General use
 int	list_size(t_elem **stack);
 t_elem	*stack_max(t_elem **stack);
