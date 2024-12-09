@@ -31,11 +31,11 @@ void    free_stack(t_elem **stack)
 
     if (!stack)
         return ;
-    while (*stack)
+    while (*stack != NULL)
     {
         tmp = *stack;
-        *stack = (*stack)->next;
         free(tmp);
+        *stack = (*stack)->next;
     }
     free(stack);
     return ;

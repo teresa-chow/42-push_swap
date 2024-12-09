@@ -51,7 +51,7 @@ void	sort_three(t_elem **a)
 	return ;
 }
 
-void	sort_four(t_elem **a, t_elem **b) //mem REVIEW
+void	sort_four(t_elem **a, t_elem **b)
 {
 	t_elem	*min;
 	t_elem	*last;
@@ -60,14 +60,14 @@ void	sort_four(t_elem **a, t_elem **b) //mem REVIEW
 		return ;
 	min = stack_min(a);
 	last = stack_last(a);
-	while ((*a != min) && (min != last))
+	while ((*a != min) && (last != min))
 		ra(a);
-	if (min == last)
+	if (last == min)
 		rra(a);
 	if (sort_check(a))
 		return ;
-	*b = ft_calloc(1, sizeof(t_elem));
-	//stack_init_b(b);
+	if (!*b)
+		*b = ft_calloc(1, sizeof(t_elem));
 	pb(a, b);
 	sort_three(a);
 	pa(a, b);
@@ -83,15 +83,14 @@ void	sort_five(t_elem **a, t_elem **b) //REVIEW
 		return ;
 	min = stack_min(a);
 	last = stack_last(a);
-	while ((*a != min) && (min != last)
-		&& (min != last->prev))
+	while ((*a != min) && (last != min))
 		ra(a);
-	while ((min == last) || (min == last->prev))
+	if (last == min)
 		rra(a);
 	if (sort_check(a))
 		return ;
-	if (b == NULL)
-		stack_init_b(b);
+	if (!*b)
+		*b = ft_calloc(1, sizeof(t_elem));
 	pb(a, b);
 	sort_four(a, b);
 	pa(a, b);
