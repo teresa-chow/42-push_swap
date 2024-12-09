@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem_utils.c                                        :+:      :+:    :+:   */
+/*   stack_aux.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchow-so  <tchow-so@student.42porto.>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 15:35:56 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/12/02 15:35:56 by tchow-so         ###   ########.fr       */
+/*   Created: 2024/12/09 14:37:36 by tchow-so          #+#    #+#             */
+/*   Updated: 2024/12/09 14:37:39 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void    free_strarray(char **array)
+void    stack_init_b(t_elem **b)
 {
-    int i;
-
-    i = 0;
-    while (array[i] != NULL)
+    b = ft_calloc(1, sizeof(t_elem *));
+    if (!b)
+        printerr_exit();
+    *b = ft_calloc(1, sizeof(t_elem));
+    if (!*b)
     {
-        free(array[i]);
-        i++;
+        free(b);
+        printerr_exit();
     }
-    return ;
-}
-
-void    free_stack(t_elem **stack)
-{
-    t_elem *tmp;
-
-    while (*stack)
-    {
-        tmp = *stack;
-        *stack = (*stack)->next;
-        free(tmp);
-    }
-    if (stack)
-        free(stack);
     return ;
 }

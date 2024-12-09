@@ -47,8 +47,8 @@ static int stack_size(int argc, char **argv)
         i = 0;
     while (argv[i])
     {
-        i++;
         size++;
+        i++;
     }
     return (size);
 }
@@ -68,6 +68,7 @@ static t_elem   **stack_fill(int argc, char **argv, t_elem **a)
         add_elem(a);
         i++;
     }
+    (*a)->next = NULL;
     stack_start(a);
     return (a);
 }

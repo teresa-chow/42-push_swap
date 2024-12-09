@@ -17,8 +17,8 @@ NAME		= push_swap
 # ============================================================================ #
 
 SRC		= $(addprefix $(SRC_DIR)/, main.c check_input.c check_input2.c \
-	stack_init.c stack_utils.c sort_check.c sort_nano.c mem_utils.c \
-	op_push.c op_reverse_rotate.c op_rotate.c op_swap.c)
+	stack_init.c stack_utils.c stack_aux.c sort_check.c sort_nano.c \
+	mem_utils.c op_push.c op_reverse_rotate.c op_rotate.c op_swap.c)
 OBJS	 	= $(addprefix $(BUILD_DIR)/, $(notdir $(SRC:.c=.o)))
 LIBFT_ARC	= $(LIBFT_DIR)/libft.a
 

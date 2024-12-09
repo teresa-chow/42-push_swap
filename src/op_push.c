@@ -18,12 +18,19 @@
 /* move top of b to top of a */
 void	pa(t_elem **a, t_elem **b)
 {
+	if (!b)
+		return ;
 	(*a)->prev = *b;
+	if (!(*b)->next)
+		free(b);
+	else
+	{
+		*b = (*b)->next;
+		(*b)->prev = NULL;
+	}
 	(*a)->prev->next = *a;
 	*a = (*a)->prev;
 	(*a)->prev = NULL;
-	*b = (*b)->next;
-	(*b)->prev = NULL;
 	write(1, "pa\n", 3);
 	return ;
 }
@@ -31,6 +38,8 @@ void	pa(t_elem **a, t_elem **b)
 /* move top of a to top of b */
 void	pb(t_elem **a, t_elem **b)
 {
+	if (!b)
+		return ;
 	if (!(*b)->prev)
 	{
 		*b = *a;

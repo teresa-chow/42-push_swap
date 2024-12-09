@@ -46,15 +46,15 @@ void	printerr_exit(void);
 long	ft_atol(const char *str);
 
 /* ============================= STACK UTILS ================================ */
+// List initiation
 t_elem    **stack_init(int argc, char **argv, t_elem **a);
-int	list_size(t_elem **stack);
-// Node initiation
+void    stack_init_b(t_elem **b);
 // General use
-//int	stack_size(t_elem **stack);
-void stack_start(t_elem **a);
+int	list_size(t_elem **stack);
 t_elem	*stack_max(t_elem **stack);
 t_elem	*stack_last(t_elem **stack);
 t_elem	*stack_min(t_elem **stack);
+void stack_start(t_elem **a);
 
 /* ======================= INSTRUCTIONS (OPERATIONS) ======================== */
 // Swap
