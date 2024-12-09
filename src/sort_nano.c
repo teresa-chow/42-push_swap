@@ -66,8 +66,7 @@ void	sort_four(t_elem **a, t_elem **b)
 		rra(a);
 	if (sort_check(a))
 		return ;
-	if (!*b)
-		*b = ft_calloc(1, sizeof(t_elem));
+	*b = ft_calloc(1, sizeof(t_elem));
 	pb(a, b);
 	sort_three(a);
 	pa(a, b);
@@ -89,8 +88,7 @@ void	sort_five(t_elem **a, t_elem **b) //REVIEW
 		rra(a);
 	if (sort_check(a))
 		return ;
-	if (!*b)
-		*b = ft_calloc(1, sizeof(t_elem));
+	*b = ft_calloc(1, sizeof(t_elem));
 	pb(a, b);
 	sort_four(a, b);
 	pa(a, b);
