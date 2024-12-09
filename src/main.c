@@ -32,9 +32,14 @@ int	main(int argc, char **argv)
 	{
 		if (size >= 2 && size <= 5)
 			sort_nano(a, b);
+		while ((*a) != NULL)
+		{
+			printf("MAIN :: (*a)->value: %d\n", (*a)->value);
+			*a = (*a)->next;
+		}
 		/*else
 			sort_any(a, b);*/
 	}
-	//free_stack
+	free_stack(b);
 	return (0);
 }

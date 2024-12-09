@@ -47,13 +47,13 @@ static void	check_syntax(char *arg)
 {
 	int	i;
 
-	i = 0;
+	if ((arg[0] != '+' && arg[0] != '-') && (!ft_isdigit(arg[0])))
+		printerr_exit();
+	if ((arg[0] == '+' || arg[0] == '-') && (!ft_isdigit(arg[1])))
+		printerr_exit();
+	i = 1;
 	while (arg[i])
 	{
-		if ((arg[0] != '+' && arg[0] != '-') && (!ft_isdigit(arg[0])))
-			printerr_exit();
-		if ((arg[0] == '+' || arg[0] == '-') && (!ft_isdigit(arg[1])))
-			printerr_exit();
 		if (!ft_isdigit(arg[i]))
 			printerr_exit();
 		i++;

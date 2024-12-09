@@ -24,3 +24,18 @@ void    free_strarray(char **array)
     }
     return ;
 }
+
+void    free_stack(t_elem **stack)
+{
+    t_elem *tmp;
+
+    while (*stack != NULL)
+    {
+        tmp = *stack;
+        *stack = (*stack)->next;
+        free(tmp);
+    }
+    if (stack)
+        free(stack);
+    return ;
+}

@@ -16,10 +16,14 @@
 
 static void	rotate(t_elem **stack)
 {
+	t_elem	*last;
+
+	last = stack_last(stack);
+	(*stack)->prev = last;
+	last->next = *stack;
+	(*stack)->next->prev = NULL;
 	*stack = (*stack)->next;
-	(*stack)->prev->prev = stack_last(stack);
-	(*stack)->prev->next = NULL;
-	(*stack)->prev = NULL;
+	last->next->next = NULL;
 }
 
 void	ra(t_elem **a)

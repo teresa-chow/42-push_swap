@@ -53,7 +53,7 @@ t_elem	*stack_max(t_elem **stack)
 		return (NULL);
 	max = INT_MIN;
 	current = *stack;
-	while (current->next)
+	while (current != NULL)
 	{
 		if (current->value > max)
 		{

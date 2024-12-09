@@ -31,6 +31,8 @@ t_elem    **stack_init(int argc, char **argv, t_elem **a)
         printerr_exit();
     }
     a = stack_fill(argc, argv, a);
+    if (argc == 2)
+        free_strarray(argv);
     return (a);
 }
 

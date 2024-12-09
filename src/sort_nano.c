@@ -23,8 +23,8 @@ void	sort_nano(t_elem **a, t_elem **b)
 		sort_three(a);
 	else if (size == 4)
 		sort_four(a, b);
-	/*else if (stack_size(a) == 5)
-		sort_five(&a, &b);*/
+	else if (size == 5)
+		sort_five(a, b);
 	return ;
 }
 
@@ -37,14 +37,14 @@ void	sort_two(t_elem **a)
 
 void	sort_three(t_elem **a)
 {
-	t_elem	*max_node;
+	t_elem	*max;
 
 	if (sort_check(a))
 		return ;
-	max_node = stack_max(a);
-	if (max_node == *a)
+	max = stack_max(a);
+	if (max == *a)
 		ra(a);
-	else if (max_node == (*a)->next)
+	else if (max == (*a)->next)
 		rra(a);
 	if ((*a)->value > (*a)->next->value)
 		sa(a);
@@ -53,18 +53,18 @@ void	sort_three(t_elem **a)
 
 void	sort_four(t_elem **a, t_elem **b)
 {
-	t_elem	*min_node;
-	t_elem	*last_node;
+	t_elem	*min;
+	t_elem	*last;
 
 	if (sort_check(a))
 		return ;
-	min_node = stack_min(a);
-	last_node = stack_last(a);
-	while ((*a != min_node) && (min_node != last_node))
+	min = stack_min(a);
+	last = stack_last(a);
+	while ((*a != min) && (min != last))
 		ra(a);
-	if (min_node == last_node)
+	if (min == last)
 		rra(a);
-	if (printf("sort_check(a): %d\n", sort_check(a)))
+	if (sort_check(a))
 		return ;
 	b = ft_calloc(1, sizeof(t_elem *));
 	*b = ft_calloc(1, sizeof(t_elem));
@@ -74,24 +74,26 @@ void	sort_four(t_elem **a, t_elem **b)
 	return ;
 }
 
-/*void	sort_five(t_elem **a, t_elem **b)
+void	sort_five(t_elem **a, t_elem **b) //REVIEW
 {
-	t_elem	*min_node;
-	t_elem	*last_node;
+	t_elem	*min;
+	t_elem	*last;
 
-	if (check_sort(a))
+	if (sort_check(a))
 		return ;
-	*min_node = stack_min(*a);
-	*last_node = stack_last(*a);
-	while ((*a != *min_node) && (*min_node != *last_node)
-		&& (*min_node != (*last_node)->prev))
+	min = stack_min(a);
+	last = stack_last(a);
+	while ((*a != min) && (min != last)
+		&& (min != last->prev))
 		ra(a);
-	while ((*min_node == *last_node) || (*min_node == (*last_node)->prev))
+	while ((min == last) || (min == last->prev))
 		rra(a);
-	if (check_sort(a))
+	if (sort_check(a))
 		return ;
+	b = ft_calloc(1, sizeof(t_elem *));
+	*b = ft_calloc(1, sizeof(t_elem));
 	pb(a, b);
 	sort_four(a, b);
 	pa(a, b);
 	return ;
-}*/
+}

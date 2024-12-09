@@ -81,10 +81,11 @@ void	sort_nano(t_elem **a, t_elem **b);
 void	sort_two(t_elem **a);
 void	sort_three(t_elem **a);
 void	sort_four(t_elem **a, t_elem **b);
-//void	sort_five(t_elem **a, t_elem **b); 
+void	sort_five(t_elem **a, t_elem **b); 
 //void	sort_any(t_elem **a, t_elem **b); // TODO
 
 /* ================================ MEMORY ================================= */
-//void    free_strarray(char **array);
+void    free_strarray(char **array);
+void    free_stack(t_elem **stack);
 
 #endif
