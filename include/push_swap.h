@@ -19,21 +19,9 @@
 
 # include "../libs/libft/libft/libft.h"
 
-/* typedef struct	s_stack
-{
-	int	*node_index;
-	int	len;
-}		t_stack; */
-
 typedef struct	s_elem
 {
 	int		value;
-	//int		current_index;
-	//int		final_index;
-	//int		cost;
-	//int		above_median;
-	//int		cheapest;
-	//struct s_elem	*target_node;
 	struct s_elem	*next;
 	struct s_elem	*prev;
 }		t_elem;

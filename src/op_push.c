@@ -22,7 +22,7 @@ void	pa(t_elem **a, t_elem **b)
 		return ;
 	(*a)->prev = *b;
 	if (!(*b)->next)
-		free(b);
+		return ;
 	else
 	{
 		*b = (*b)->next;

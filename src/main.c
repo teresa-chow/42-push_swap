@@ -22,11 +22,11 @@ int	main(int argc, char **argv)
 	int	size;
 
 	a = NULL;
-	b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (0);
 	argv = check_input(argc, argv);
 	a = stack_init(argc, argv, a);
+	b = ft_calloc(1, sizeof(t_elem *));
 	size = list_size(a);
 	if (!sort_check(a))
 	{
@@ -36,8 +36,7 @@ int	main(int argc, char **argv)
 			sort_any(a, b);*/
 	}
 	printf("sizeof(t_elem *): %lu | sizeof(t_elem): %lu\n", sizeof(t_elem *), sizeof(t_elem));
-	if (b)
-		free_stack(b);
+	free_stack(b);
 	free_stack(a);
 	return (0);
 }

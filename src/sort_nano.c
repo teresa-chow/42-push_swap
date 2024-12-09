@@ -66,7 +66,6 @@ void	sort_four(t_elem **a, t_elem **b) //mem REVIEW
 		rra(a);
 	if (sort_check(a))
 		return ;
-	b = ft_calloc(1, sizeof(t_elem *));
 	*b = ft_calloc(1, sizeof(t_elem));
 	//stack_init_b(b);
 	pb(a, b);

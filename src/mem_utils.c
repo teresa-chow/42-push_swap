@@ -29,13 +29,14 @@ void    free_stack(t_elem **stack)
 {
     t_elem *tmp;
 
+    if (!stack)
+        return ;
     while (*stack)
     {
         tmp = *stack;
         *stack = (*stack)->next;
         free(tmp);
     }
-    if (stack)
-        free(stack);
+    free(stack);
     return ;
 }
