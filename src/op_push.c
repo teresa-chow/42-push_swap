@@ -21,9 +21,7 @@ void	pa(t_elem **a, t_elem **b)
 	if (!b)
 		return ;
 	(*a)->prev = *b;
-	if (!(*b)->next)
-		return ;
-	else
+	if ((*b)->next)
 	{
 		*b = (*b)->next;
 		(*b)->prev = NULL;
