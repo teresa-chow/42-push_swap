@@ -36,11 +36,13 @@ void	pa(t_elem **a, t_elem **b)
 /* move top of a to top of b */
 void	pb(t_elem **a, t_elem **b)
 {
-	if (!b)
-		return ;
-	if (!(*b)->prev)
+	t_elem	*tmp;
+
+	if (!b) //check: top of list prev = NULL
 	{
-		*b = *a;
+		//b = ft_calloc(1, sizeof(t_elem *));
+		tmp = *a;	
+		b = (t_elem **)tmp;
 		*a = (*a)->next;
 		(*b)->next = NULL;
 		(*b)->prev = NULL;

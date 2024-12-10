@@ -27,15 +27,17 @@ void    free_strarray(char **array)
 
 void    free_stack(t_elem **stack)
 {
+    t_elem *current;
     t_elem *tmp;
 
     if (!stack)
         return ;
-    while (*stack != NULL)
+    current = *stack;
+    while (current)
     {
-        tmp = *stack;
+        tmp = current;
+        current = current->next;
         free(tmp);
-        *stack = (*stack)->next;
     }
     free(stack);
     return ;

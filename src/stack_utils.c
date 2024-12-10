@@ -20,11 +20,11 @@ int	list_size(t_elem **stack)
 	if (!stack)
 		return (0);
 	current = *stack;
-	size = 1;
-	while (current->next != NULL)
+	size = 0;
+	while (current != NULL)
 	{
-		current = current->next;
 		size++;
+		current = current->next;
 	}
 	return (size);
 }

@@ -66,7 +66,7 @@ void	sort_four(t_elem **a, t_elem **b)
 		rra(a);
 	if (sort_check(a))
 		return ;
-	*b = ft_calloc(1, sizeof(t_elem));
+	//*b = ft_calloc(1, sizeof(t_elem));
 	pb(a, b);
 	sort_three(a);
 	pa(a, b);
@@ -82,8 +82,10 @@ void	sort_five(t_elem **a, t_elem **b) //REVIEW
 		return ;
 	min = stack_min(a);
 	last = stack_last(a);
-	while ((*a != min) && (last != min))
+	while ((*a != min) && (last != min) && (last->prev != min))
 		ra(a);
+	if (last->prev == min)
+		rra(a);
 	if (last == min)
 		rra(a);
 	if (sort_check(a))

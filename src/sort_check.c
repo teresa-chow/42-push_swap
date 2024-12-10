@@ -25,15 +25,3 @@ int	sort_check(t_elem **stack)
 	}
 	return (1);
 }
-/*
-int	sort_rev_check(t_elem **stack) // useful ?
-{
-	*stack = stack_last(stack);
-	while ((*stack)->prev)
-	{
-		if ((*stack)->value > (*stack)->prev->value)
-			return(0);
-		*stack = (*stack)->prev;
-	}
-	return (1);
-}*/

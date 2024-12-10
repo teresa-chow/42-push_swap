@@ -42,7 +42,7 @@ LIBFT_DIR	= $(LIBS_DIR)/libft
 
 CC	= cc
 CFLAGS	= -Wall -Wextra -Werror
-#CFLAGS	+= -g
+CFLAGS	+= -g
 
 MAKE	= make -C
 

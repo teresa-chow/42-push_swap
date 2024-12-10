@@ -13,10 +13,10 @@
 #include "../include/push_swap.h"
 
 static int stack_size(int argc, char **argv);
-static t_elem   **stack_fill(int argc, char **argv, t_elem **a);
+static void   stack_fill(int argc, char **argv, t_elem **a);
 static void add_elem(t_elem **a);
 
-t_elem    **stack_init(int argc, char **argv, t_elem **a)
+void    stack_init(int argc, char **argv, t_elem **a)
 {
     int size;
 
@@ -30,10 +30,10 @@ t_elem    **stack_init(int argc, char **argv, t_elem **a)
         free(a);
         printerr_exit();
     }
-    a = stack_fill(argc, argv, a);
+    stack_fill(argc, argv, a);
     if (argc == 2)
         free_strarray(argv);
-    return (a);
+    return ;
 }
 
 static int stack_size(int argc, char **argv)
@@ -53,7 +53,7 @@ static int stack_size(int argc, char **argv)
     return (size);
 }
 
-static t_elem   **stack_fill(int argc, char **argv, t_elem **a)
+static void   stack_fill(int argc, char **argv, t_elem **a)
 {
     int i;
 
@@ -70,7 +70,7 @@ static t_elem   **stack_fill(int argc, char **argv, t_elem **a)
     }
     (*a)->next = NULL;
     stack_start(a);
-    return (a);
+    return ;
 }
 
 static void add_elem(t_elem **a)
