@@ -28,6 +28,7 @@ int	main(int argc, char **argv)
 	argv = check_input(argc, argv);
 	stack_init(argc, argv, &a);
 	size = list_size(&a);
+	printf("sort_check return value: %d\n", sort_check(&a));
 	if (!sort_check(&a))
 	{
 		if (size >= 2 && size <= 5)
@@ -35,14 +36,13 @@ int	main(int argc, char **argv)
 		/*else
 			sort_any(a, b);*/
 	}
-//	free(b);
 	/*while ((*a)->next != NULL) //test only
 	{
 		printf("(*a)->value: %d\n", (*a)->value);
 		*a = (*a)->next;
 	}
 	printf("(*a)->value: %d\n", (*a)->value);*/
-	free_stack(&a);
+//	free_stack(a);
 	return (0);
 }
 
