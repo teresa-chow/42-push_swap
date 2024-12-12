@@ -55,9 +55,9 @@ t_elem	*stack_max(t_elem **stack)
 	current = *stack;
 	while (current != NULL)
 	{
-		if (current->value > max)
+		if (current->val > max)
 		{
-			max = current->value;
+			max = current->val;
 			max_node = current;
 		}
 		current = current->next;
@@ -78,9 +78,9 @@ t_elem	*stack_min(t_elem **stack)
 	min_node = NULL;
 	while (current != NULL)
 	{
-		if (current->value < min)
+		if (current->val < min)
 		{
-			min = current->value;
+			min = current->val;
 			min_node = current;
 		}
 		current = current->next;

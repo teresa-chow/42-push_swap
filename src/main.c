@@ -38,8 +38,3 @@ int	main(int argc, char **argv)
 	free_stack(&a);
 	return (0);
 }
-
-/* Memory allocation needs critical review: project still has invalid reads, off-by-one errors, invalid frees, etc.
-[ ] sort_five : infinite loop on 4th element -- review calling sort_four
-[ ] sort_any : to do (algorithm for large groups of data)
-*/

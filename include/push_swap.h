@@ -21,7 +21,7 @@
 
 typedef struct	s_elem
 {
-	int		value;
+	int		val;
 	struct s_elem	*next;
 	struct s_elem	*prev;
 }		t_elem;

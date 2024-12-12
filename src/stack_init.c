@@ -40,7 +40,7 @@ static void   stack_fill(int argc, char **argv, t_elem **a)
     current = *a;
     while (argv[i])
     {
-        current->value = ft_atoi(argv[i]);
+        current->val = ft_atoi(argv[i]);
         if (!argv[i + 1])
             break;
         add_elem(current);

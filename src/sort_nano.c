@@ -46,7 +46,7 @@ void	sort_three(t_elem **a)
 		ra(a);
 	else if (max == (*a)->next)
 		rra(a);
-	if ((*a)->value > (*a)->next->value)
+	if ((*a)->val > (*a)->next->val)
 		sa(a);
 	return ;
 }
@@ -72,7 +72,7 @@ void	sort_four(t_elem **a, t_elem **b)
 	return ;
 }
 
-void	sort_five(t_elem **a, t_elem **b) //REVIEW
+void	sort_five(t_elem **a, t_elem **b)
 {
 	t_elem	*min;
 	t_elem	*last;
