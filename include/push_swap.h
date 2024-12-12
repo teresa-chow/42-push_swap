@@ -68,7 +68,7 @@ void	sort_two(t_elem **a);
 void	sort_three(t_elem **a);
 void	sort_four(t_elem **a, t_elem **b);
 void	sort_five(t_elem **a, t_elem **b); 
-//void	sort_any(t_elem **a, t_elem **b); // TODO
+void	sort_any(t_elem **a, t_elem **b);
 
 /* ================================ MEMORY ================================= */
 void    free_strarray(char **array);

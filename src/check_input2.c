@@ -19,18 +19,18 @@ void	check_nodup(int argc, char **argv)
 	int	cmp;
 
 	i = 1;
-	cmp = 2;
 	if (argc == 2)
-	{
 		i = 0;
-		cmp = 1;
-	}
-	while (argv[cmp])
+	while (argv[i])
 	{
-		if (ft_atol(argv[i]) == ft_atol(argv[cmp]))
-			printerr_exit();
+		cmp = i + 1;
+		while (argv[cmp])
+		{
+			if (ft_atol(argv[i]) == ft_atol(argv[cmp]))
+				printerr_exit();
+			cmp++;
+		}
 		i++;
-		cmp++;
 	}
 	return ;
 }
