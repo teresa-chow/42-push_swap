@@ -12,19 +12,11 @@
 
 #include "../include/push_swap.h"
 
-static int stack_size(int argc, char **argv);
 static void   stack_fill(int argc, char **argv, t_elem **a);
 static void add_elem(t_elem *elem);
 
 void    stack_init(int argc, char **argv, t_elem **a)
 {
-    int size;
-
-    size = stack_size(argc, argv);
-    // a = ft_calloc(size, sizeof(t_elem *));
-    // if (!a)
-    //     printerr_exit();
-    (void)size;
     *a = ft_calloc(1, sizeof(t_elem));
     if (!*a)
     {
@@ -35,23 +27,6 @@ void    stack_init(int argc, char **argv, t_elem **a)
     if (argc == 2)
         free_strarray(argv);
     return ;
-}
-
-static int stack_size(int argc, char **argv)
-{
-    int size;
-    int i;
-
-    size = 0;
-    i = 1;
-    if (argc == 2)
-        i = 0;
-    while (argv[i])
-    {
-        size++;
-        i++;
-    }
-    return (size);
 }
 
 static void   stack_fill(int argc, char **argv, t_elem **a)
@@ -72,7 +47,6 @@ static void   stack_fill(int argc, char **argv, t_elem **a)
         current = current->next;
         i++;
     }
-//    (*a)->next = NULL;
     return ;
 }
 
@@ -86,5 +60,4 @@ static void add_elem(t_elem *elem)
     elem->next = new;
     new->prev = elem;
     elem = new;
-//    (*elem)->next = NULL;
 }

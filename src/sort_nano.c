@@ -16,7 +16,7 @@ void	sort_nano(t_elem **a, t_elem **b)
 {
 	int	size;
 
-	size = list_size(a);
+	size = stack_size(a);
 	if (size == 2)
 		sort_two(a);
 	else if (size == 3)
