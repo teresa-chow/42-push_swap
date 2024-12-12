@@ -41,7 +41,6 @@ int	list_size(t_elem **stack);
 t_elem	*stack_max(t_elem **stack);
 t_elem	*stack_last(t_elem **stack);
 t_elem	*stack_min(t_elem **stack);
-//void stack_start(t_elem **a);
 
 /* ======================= INSTRUCTIONS (OPERATIONS) ======================== */
 // Swap

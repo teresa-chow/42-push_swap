@@ -27,20 +27,20 @@ int	main(int argc, char **argv)
 		return (0);
 	argv = check_input(argc, argv);
 	stack_init(argc, argv, &a);
-	size = list_size(&a); //review
-	printf("list_size(&a): %d | sort_check return value: %d\n", list_size(&a), sort_check(&a));
-	if (!sort_check(&a))
+	size = list_size(&a);
+ 	if (!sort_check(&a))
 	{
 		if (size >= 2 && size <= 5)
 			sort_nano(&a, &b);
-		/*else
-			sort_any(a, b);*/
+		/* else
+			sort_any(a, b); */
 	}
 	/*while ((*a)->next != NULL) //test only
 	{
 		printf("(*a)->value: %d\n", (*a)->value);
 		*a = (*a)->next;
 	}*/
+	free_stack(&a);
 	return (0);
 }
 

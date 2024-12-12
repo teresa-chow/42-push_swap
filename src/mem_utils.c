@@ -39,6 +39,5 @@ void    free_stack(t_elem **stack)
         current = current->next;
         free(tmp);
     }
-    free(stack);
     return ;
 }

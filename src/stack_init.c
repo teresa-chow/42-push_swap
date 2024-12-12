@@ -14,16 +14,17 @@
 
 static int stack_size(int argc, char **argv);
 static void   stack_fill(int argc, char **argv, t_elem **a);
-static void add_elem(t_elem *node);
+static void add_elem(t_elem *elem);
 
 void    stack_init(int argc, char **argv, t_elem **a)
 {
     int size;
 
     size = stack_size(argc, argv);
-    a = ft_calloc(size, sizeof(t_elem *));
-    if (!a)
-        printerr_exit();
+    // a = ft_calloc(size, sizeof(t_elem *));
+    // if (!a)
+    //     printerr_exit();
+    (void)size;
     *a = ft_calloc(1, sizeof(t_elem));
     if (!*a)
     {
@@ -68,27 +69,22 @@ static void   stack_fill(int argc, char **argv, t_elem **a)
         if (!argv[i + 1])
             break;
         add_elem(current);
+        current = current->next;
         i++;
     }
-    current->next = NULL;
-//    stack_start(a);
+//    (*a)->next = NULL;
     return ;
 }
 
-static void add_elem(t_elem *node)
+static void add_elem(t_elem *elem)
 {
     t_elem *new;
 
     new = ft_calloc(1, sizeof(t_elem));
     if (!new)
         printerr_exit();
-    new->prev = node;
-    node = new;
-    node->next = NULL;
+    elem->next = new;
+    new->prev = elem;
+    elem = new;
+//    (*elem)->next = NULL;
 }
-
-/*void stack_start(t_elem **a)
-{
-    while ((*a)->prev != NULL)
-        *a = (*a)->prev;
-}*/
