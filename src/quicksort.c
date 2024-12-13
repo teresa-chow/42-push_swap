@@ -15,8 +15,15 @@
 static int  qs_partition(char **str, int low, int high);
 static void    qs_swap(int *a, int *b);
 
-quicksort()
-{}
+void    quicksort(char **str, int low, int high)
+{
+    int pivot;
+
+    if (low < high)
+    {
+        pivot = qs_partition(str, low, high);
+    }
+}
 
 static int qs_partition(char **str, int low, int high)
 {
