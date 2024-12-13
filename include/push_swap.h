@@ -22,6 +22,8 @@
 typedef struct	s_elem
 {
 	int		val;
+	int		i;
+	int		median;
 	struct s_elem	*next;
 	struct s_elem	*prev;
 }		t_elem;
@@ -69,6 +71,8 @@ void	sort_three(t_elem **a);
 void	sort_four(t_elem **a, t_elem **b);
 void	sort_five(t_elem **a, t_elem **b); 
 void	sort_any(t_elem **a, t_elem **b);
+// Auxiliary algorithms
+
 
 /* ================================ MEMORY ================================= */
 void    free_strarray(char **array);
