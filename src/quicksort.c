@@ -22,9 +22,12 @@ void    quicksort(char **str, int low, int high)
     if (low < high)
     {
         pivot = qs_partition(str, low, high);
+        quicksort(str, low, pivot - 1);
+        quicksort(str, pivot + 1, high);
     }
 }
 
+/* sort_any currently only takes two lists as arguments */
 static int qs_partition(char **str, int low, int high)
 {
     int pivot;
@@ -34,7 +37,16 @@ static int qs_partition(char **str, int low, int high)
     i = low;
     j = high;
     while (i < j)
-    
+    {
+        while (str[i] <= pivot && i <= high - 1)
+            i++;
+        while (str[j] > pivot && j >= low + 1)
+            j--;
+        if (i > j)
+            qs_swap(&str[i], &str[j]);
+    }
+    qs_swap(&str[low], &str[j]);
+    return (j);
 }
 
 static void    qs_swap(int *a, int *b)
@@ -45,3 +57,5 @@ static void    qs_swap(int *a, int *b)
     *a = *b;
     *b = tmp;
 }
+
+/* Still needs review for application */

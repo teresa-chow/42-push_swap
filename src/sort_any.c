@@ -14,6 +14,9 @@
 
 void	sort_any(t_elem **a, t_elem **b)
 {
+    t_elem **stack_cpy;
+
+    printf();
     (void)a;
     (void)b;
     printf("TO DO\n");
