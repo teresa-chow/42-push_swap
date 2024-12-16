@@ -12,50 +12,69 @@
 
 #include "../include/push_swap.h"
 
-static int  qs_partition(char **str, int low, int high);
-static void    qs_swap(int *a, int *b);
+static t_elem *qs_partition(t_elem *head, t_elem *tail);
+static void    qs_swap(t_elem *x, t_elem *y);
 
-void    quicksort(char **str, int low, int high)
+void    quicksort(t_elem *head, t_elem *tail)
 {
-    int pivot;
+    t_elem  *pivot;
 
-    if (low < high)
-    {
-        pivot = qs_partition(str, low, high);
-        quicksort(str, low, pivot - 1);
-        quicksort(str, pivot + 1, high);
-    }
+    if (!head || !tail)
+        return ;
+    pivot = qs_partition(head, tail);
+    quicksort(head, pivot);
+    quicksort(pivot->next, tail);
 }
 
-/* sort_any currently only takes two lists as arguments */
-static int qs_partition(char **str, int low, int high)
+/* Rearrange list values around pivot */
+static t_elem *qs_partition(t_elem *start, t_elem *end)
 {
-    int pivot;
-    int i;
-    int j;
+    t_elem  *pivot;
+    t_elem  *new_pivot;
+    t_elem  *current;
 
-    i = low;
-    j = high;
-    while (i < j)
+    pivot = start;
+    new_pivot = start;
+    current = start;
+    while (current != end->next)
     {
-        while (str[i] <= pivot && i <= high - 1)
-            i++;
-        while (str[j] > pivot && j >= low + 1)
-            j--;
-        if (i > j)
-            qs_swap(&str[i], &str[j]);
+        if (current->val < pivot->val)
+        {
+            qs_swap(current, new_pivot->next);
+            new_pivot = new_pivot->next;
+        }
+        current = current->next;
     }
-    qs_swap(&str[low], &str[j]);
-    return (j);
+    qs_swap(pivot, new_pivot);
+    return (new_pivot);
 }
 
-static void    qs_swap(int *a, int *b)
+static void    qs_swap(t_elem *x, t_elem *y)
 {
     int tmp;
 
-    tmp = *a;
-    *a = *b;
-    *b = tmp;
+    tmp = x->val;
+    x->val = y->val;
+    y->val = tmp;
 }
 
-/* Still needs review for application */
+void   stack_dup(t_elem **stack, t_elem **dup) //ATTENTION: alloc mem
+{
+    t_elem  *current;
+
+    current = *stack;
+    while (current->next)
+    {
+        *dup = ft_calloc(1, sizeof(t_elem));
+        if (!*dup)
+        {
+            free(dup);
+            free(stack);
+            printerr_exit();
+        }
+        *dup = current;
+        current = current->next;
+        *dup = (*dup)->next;
+    }
+    return ;
+}

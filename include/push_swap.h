@@ -62,6 +62,8 @@ void	rrb(t_elem **b);
 void	rrr(t_elem **a, t_elem **b); 
 
 /* ================================ SORTING ================================= */
+// Quicksort (find median)
+void   stack_dup(t_elem **stack, t_elem **dup);
 // Utils
 int	sort_check(t_elem **stack);
 // Algorithms
@@ -72,7 +74,7 @@ void	sort_four(t_elem **a, t_elem **b);
 void	sort_five(t_elem **a, t_elem **b); 
 void	sort_any(t_elem **a, t_elem **b);
 // Auxiliary algorithms
-
+void    quicksort(t_elem *head, t_elem *tail);
 
 /* ================================ MEMORY ================================= */
 void    free_strarray(char **array);

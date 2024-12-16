@@ -12,12 +12,35 @@
 
 #include "../include/push_swap.h"
 
+static void find_median(t_elem **a, t_elem **median, int size);
+
 void	sort_any(t_elem **a, t_elem **b)
 {
-    t_elem **stack_cpy;
+    int size;
+    t_elem  *median;
 
-    printf();
-    (void)a;
     (void)b;
-    printf("TO DO\n");
+    size = stack_size(a);
+    find_median(a, &median, size);
+    printf("median->val: %d\n", median->val);
+    //push median to stack b
+}
+
+static void find_median(t_elem **a, t_elem **median, int size)
+{
+    t_elem  *dup;
+    t_elem  *tail;
+    int median_i;
+
+    dup = NULL;
+    stack_dup(a, &dup);
+    tail = stack_last((t_elem **)dup);
+    quicksort(dup, tail);
+    median_i = size / 2;
+    while (dup && median_i--)
+    {
+            *median = dup;
+            dup = dup->next;
+    }
+    free_stack((t_elem **)dup);
 }

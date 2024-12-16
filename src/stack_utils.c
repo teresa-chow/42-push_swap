@@ -37,7 +37,7 @@ t_elem	*stack_last(t_elem **stack)
 
 	last_index = stack_size(stack) - 1;
 	current = *stack;
-	while (last_index--)
+	while (last_index-- > 0)
 		current = current->next;
 	last_node = current;
 	return (last_node);
