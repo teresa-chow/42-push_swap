@@ -21,6 +21,7 @@ void	sort_any(t_elem **a, t_elem **b)
 
     (void)b;
     size = stack_size(a);
+    printf("size: %d\n", size);
     find_median(a, &median, size);
     printf("median->val: %d\n", median->val);
     //push median to stack b
