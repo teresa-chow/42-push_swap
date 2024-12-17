@@ -63,18 +63,15 @@ void   stack_dup(t_elem **stack, t_elem **dup) //ATTENTION: alloc mem
     t_elem  *current;
 
     current = *stack;
-    while (current->next)
+    while (current != NULL)
     {
-        *dup = ft_calloc(1, sizeof(t_elem));
-        if (!*dup)
-        {
-            free(dup);
-            free(stack);
-            printerr_exit();
-        }
-        *dup = current;
+        (*dup)->val = current->val;
+        printf("stack_dup :: (*dup)->val: %d\n", (*dup)->val);
+        printf("stack_dup :: *dup: %p\n", *dup);
         current = current->next;
-        *dup = (*dup)->next;
+        if (current == NULL)
+            break ;
+        add_elem(*dup);
     }
     return ;
 }

@@ -13,7 +13,6 @@
 #include "../include/push_swap.h"
 
 static void   stack_fill(int argc, char **argv, t_elem **a);
-static void add_elem(t_elem *elem);
 
 void    stack_init(int argc, char **argv, t_elem **a)
 {
@@ -50,13 +49,13 @@ static void   stack_fill(int argc, char **argv, t_elem **a)
     return ;
 }
 
-static void add_elem(t_elem *elem)
+void add_elem(t_elem *elem)
 {
     t_elem *new;
 
     new = ft_calloc(1, sizeof(t_elem));
     if (!new)
-        printerr_exit();
+        printerr_exit(); //should free previously alloc'ed nodes
     elem->next = new;
     new->prev = elem;
     elem = new;
