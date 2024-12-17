@@ -26,7 +26,7 @@ void    quicksort(t_elem *head, t_elem *tail)
     quicksort(pivot->next, tail);
 }
 
-/* Rearrange list values around pivot */
+/* Rearrange list values around pivot - smaller values on the left, bigger on the right */
 static t_elem *qs_partition(t_elem *start, t_elem *end)
 {
     t_elem  *pivot;
@@ -36,10 +36,11 @@ static t_elem *qs_partition(t_elem *start, t_elem *end)
     pivot = start;
     new_pivot = start;
     current = start;
-    while (current != end->next)
+    while (current && (current != end->next))
     {
-        if (current->val < pivot->val)
+        if (current->val < pivot->val) //review swap
         {
+            printf("qs_partition :: pivot->val: %d | current->val: %d | new_pivot->val: %d\n", pivot->val, current->val, new_pivot->val);
             qs_swap(current, new_pivot->next);
             new_pivot = new_pivot->next;
         }
