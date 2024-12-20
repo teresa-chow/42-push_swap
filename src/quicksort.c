@@ -33,14 +33,15 @@ static t_elem *qs_partition(t_elem *start, t_elem *end)
     t_elem  *new_pivot;
     t_elem  *current;
 
-    pivot = start;
+    pivot = end;
     new_pivot = start;
     current = start;
     while (current && (current != end->next))
     {
-        if (current->val < pivot->val) //review swap
+        if (current->val <= pivot->val)
         {
-            printf("qs_partition :: pivot->val: %d | current->val: %d | new_pivot->val: %d\n", pivot->val, current->val, new_pivot->val);
+            if (new_pivot == NULL)
+                new_pivot = start;
             qs_swap(current, new_pivot->next);
             new_pivot = new_pivot->next;
         }
