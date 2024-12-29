@@ -17,7 +17,7 @@ int	sort_check(t_elem **stack)
 	t_elem	*current;
 
 	current = *stack;
-	while (current->next != NULL)
+	while (current)
 	{
 		if (current->val > current->next->val)
 			return (0);

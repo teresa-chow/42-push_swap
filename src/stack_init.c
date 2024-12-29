@@ -31,20 +31,24 @@ void    stack_init(int argc, char **argv, t_elem **a)
 static void   stack_fill(int argc, char **argv, t_elem **a)
 {
     int i;
+    int index;
     t_elem  *current;
 
     i = 1;
     if (argc == 2)
         i = 0;
     current = *a;
+    index = 0;
     while (argv[i])
     {
         current->val = ft_atoi(argv[i]);
+        current->i = index;
         if (!argv[i + 1])
             break;
         add_elem(current);
         current = current->next;
         i++;
+        index++;
     }
     return ;
 }

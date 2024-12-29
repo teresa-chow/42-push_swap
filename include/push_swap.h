@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
+# include <stdbool.h>
 
 # include "../libs/libft/libft/libft.h"
 
@@ -23,7 +24,7 @@ typedef struct	s_elem
 {
 	int		val;
 	int		i;
-	int		median;
+	bool		median;
 	struct s_elem	*next;
 	struct s_elem	*prev;
 }		t_elem;
@@ -75,7 +76,7 @@ void	sort_four(t_elem **a, t_elem **b);
 void	sort_five(t_elem **a, t_elem **b); 
 void	sort_any(t_elem **a, t_elem **b);
 // Auxiliary algorithms
-void    quicksort(t_elem *head, t_elem *tail);
+void    quicksort(t_elem **stack, t_elem *head, t_elem *tail);
 
 /* ================================ MEMORY ================================= */
 void    free_strarray(char **array);

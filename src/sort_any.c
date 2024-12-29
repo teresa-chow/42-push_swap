@@ -12,36 +12,56 @@
 
 #include "../include/push_swap.h"
 
-static void find_median(t_elem **a, t_elem **median, int size);
+static void find_median(t_elem **a, int size);
+static void push_median(t_elem **a, t_elem **b, int size);
 
 void	sort_any(t_elem **a, t_elem **b)
 {
     int size;
-    t_elem  *median;
 
-    (void)b;
     size = stack_size(a);
-    find_median(a, &median, size);
-    //push median to stack b
+    find_median(a, size);
+    push_median(a, b, size);
 }
 
-static void find_median(t_elem **a, t_elem **median, int size)
+static void push_median(t_elem **a, t_elem **b, int size)
+{
+    t_elem  *median;
+
+    median = *a;
+    while (median->median != 1)
+        median = median->next;
+    while ((*a)->val != median->val)
+    {
+        if (median->i < size / 2)
+            ra(a);
+        else
+            rra(a);
+    }
+    pb(a, b);
+}
+
+static void find_median(t_elem **a, int size)
 {
     t_elem  *dup;
     t_elem  *tail;
-//    int median_i;
+    t_elem  *median;
+    t_elem  *current;
+    int median_i;
 
-    (void)size;
-    (void)median;
     dup = ft_calloc(1, sizeof(t_elem));
     stack_dup(a, &dup);
-    tail = stack_last(&dup); // OK until this point
-    quicksort(dup, tail);
-/*    median_i = size / 2;
+    tail = stack_last(&dup);
+    quicksort(&dup, dup, tail);
+    median_i = size / 2;
     while (dup && median_i--)
     {
-            *median = dup;
+            median = dup;
             dup = dup->next;
-    } */
+    }
+    current = *a;
+    while (current->val != median->val)
+        current = current->next;
+    current->median = 1;
     free_stack(&dup);
 }

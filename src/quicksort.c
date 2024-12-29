@@ -12,43 +12,48 @@
 
 #include "../include/push_swap.h"
 
-static t_elem *qs_partition(t_elem *head, t_elem *tail);
+static t_elem   *qs_partition(t_elem *head, t_elem *tail);
 static void    qs_swap(t_elem *x, t_elem *y);
 
-void    quicksort(t_elem *head, t_elem *tail)
+void    quicksort(t_elem **stack, t_elem *head, t_elem *tail)
 {
     t_elem  *pivot;
 
-    if (!head || !tail)
-        return ;
-    pivot = qs_partition(head, tail);
-    quicksort(head, pivot);
-    quicksort(pivot->next, tail);
+    if (head && tail && (head != tail) && (head != tail->next))
+    {
+        pivot = qs_partition(head, tail);
+        quicksort(stack, head, pivot->prev);
+        quicksort(stack, pivot->next, tail);
+    }
 }
 
-/* Rearrange list values around pivot - smaller values on the left, bigger on the right */
 static t_elem *qs_partition(t_elem *start, t_elem *end)
 {
-    t_elem  *pivot;
-    t_elem  *new_pivot;
-    t_elem  *current;
+    int  pivot;
+    t_elem  *i;
+    t_elem  *j;
 
-    pivot = end;
-    new_pivot = start;
-    current = start;
-    while (current && (current != end->next))
+    pivot = end->val;
+    i = start->prev;
+    j = start;
+    while (j != end)
     {
-        if (current->val <= pivot->val)
+        if (j->val <= pivot)
         {
-            if (new_pivot == NULL)
-                new_pivot = start;
-            qs_swap(current, new_pivot->next);
-            new_pivot = new_pivot->next;
+            if (i == NULL)
+                i = start;
+            else
+                i = i->next;
+            qs_swap(i, j);
         }
-        current = current->next;
+        j = j->next;
     }
-    qs_swap(pivot, new_pivot);
-    return (new_pivot);
+    if (i == NULL)
+        i = start;
+    else
+        i = i->next;
+    qs_swap (i, end);
+    return (i);
 }
 
 static void    qs_swap(t_elem *x, t_elem *y)
