@@ -12,11 +12,8 @@
 
 #include "../include/push_swap.h"
 
-void	sort_nano(t_elem **a, t_elem **b)
+void	sort_nano(int size, t_elem **a, t_elem **b)
 {
-	int	size;
-
-	size = stack_size(a);
 	if (size == 2)
 		sort_two(a);
 	else if (size == 3)

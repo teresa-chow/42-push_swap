@@ -12,7 +12,6 @@
 
 #include "../include/push_swap.h"
 
-/* nodup - no duplicate */
 void	check_nodup(int argc, char **argv)
 {
 	int	i;

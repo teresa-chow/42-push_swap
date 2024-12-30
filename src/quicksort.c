@@ -64,22 +64,3 @@ static void    qs_swap(t_elem *x, t_elem *y)
     x->val = y->val;
     y->val = tmp;
 }
-
-void   stack_dup(t_elem **stack, t_elem **dup)
-{
-    t_elem  *current;
-    t_elem  *curr_dup;
-
-    current = *stack;
-    curr_dup = *dup;
-    while (current)
-    {
-        curr_dup->val = current->val;
-        if (current->next == NULL)
-            break ;
-        add_elem(curr_dup);
-        curr_dup = curr_dup->next;
-        current = current->next;
-    }
-    return ;
-}

@@ -31,9 +31,9 @@ int	main(int argc, char **argv)
  	if (!sort_check(&a))
 	{
 		if (size >= 2 && size <= 5)
-			sort_nano(&a, &b);
+			sort_nano(size, &a, &b);
 		else
-			sort_any(&a, &b);
+			sort_any(size, &a, &b);
 	}
 	free_stack(&a);
 	return (0);

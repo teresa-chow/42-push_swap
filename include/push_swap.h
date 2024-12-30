@@ -24,10 +24,19 @@ typedef struct	s_elem
 {
 	int		val;
 	int		i;
-	bool		median;
+	bool	median;
 	struct s_elem	*next;
 	struct s_elem	*prev;
 }		t_elem;
+
+typedef	struct s_info
+{
+	int	min;
+	int	max[5];
+	int	median;
+	int	size;
+}	t_info;
+
 
 /* ======================= PARSING & ERROR HANDLING ========================= */
 char	**check_input(int argc, char **argv);
@@ -42,6 +51,7 @@ void	stack_init(int argc, char **argv, t_elem **a);
 void add_elem(t_elem *elem);
 // General use
 int	stack_size(t_elem **stack);
+void   stack_dup(t_elem **stack, t_elem **dup);
 t_elem	*stack_max(t_elem **stack);
 t_elem	*stack_last(t_elem **stack);
 t_elem	*stack_min(t_elem **stack);
@@ -64,18 +74,16 @@ void	rrb(t_elem **b);
 void	rrr(t_elem **a, t_elem **b); 
 
 /* ================================ SORTING ================================= */
-// Quicksort (find median)
-void   stack_dup(t_elem **stack, t_elem **dup);
 // Utils
 int	sort_check(t_elem **stack);
-// Algorithms
-void	sort_nano(t_elem **a, t_elem **b);
+// Sorting
+void	sort_nano(int size, t_elem **a, t_elem **b);
 void	sort_two(t_elem **a);
 void	sort_three(t_elem **a);
 void	sort_four(t_elem **a, t_elem **b);
 void	sort_five(t_elem **a, t_elem **b); 
-void	sort_any(t_elem **a, t_elem **b);
-// Auxiliary algorithms
+void	sort_any(int size, t_elem **a, t_elem **b);
+// Algorithms
 void    quicksort(t_elem **stack, t_elem *head, t_elem *tail);
 
 /* ================================ MEMORY ================================= */
