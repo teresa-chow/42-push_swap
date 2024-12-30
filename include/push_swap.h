@@ -74,8 +74,6 @@ void	rrb(t_elem **b);
 void	rrr(t_elem **a, t_elem **b); 
 
 /* ================================ SORTING ================================= */
-// Utils
-int	sort_check(t_elem **stack);
 // Sorting
 void	sort_nano(int size, t_elem **a, t_elem **b);
 void	sort_two(t_elem **a);
@@ -85,6 +83,13 @@ void	sort_five(t_elem **a, t_elem **b);
 void	sort_any(int size, t_elem **a, t_elem **b);
 // Algorithms
 void    quicksort(t_elem **stack, t_elem *head, t_elem *tail);
+// Utils - General use
+int	sort_check(t_elem **stack);
+// Utils – Stacks bigger than 5 elements
+void find_key_values(int size, t_elem **a, t_info *info);
+void set_info(t_elem *dup, t_info *info, int size);
+void push_median(t_elem **a, t_elem **b, int size);
+void    push_presort(t_info *info, t_elem **a, t_elem **b);
 
 /* ================================ MEMORY ================================= */
 void    free_strarray(char **array);
