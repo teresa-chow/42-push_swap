@@ -37,6 +37,16 @@ typedef	struct s_info
 	int	size;
 }	t_info;
 
+typedef struct s_moves
+{
+	int	ra;
+	int	rra;
+	int	rb;
+	int	rrb;
+	int	rr;
+	int	rrr;
+}	t_moves;
+
 
 /* ======================= PARSING & ERROR HANDLING ========================= */
 char	**check_input(int argc, char **argv);
@@ -88,8 +98,10 @@ int	sort_check(t_elem **stack);
 // Utils – Stacks bigger than 5 elements
 void find_key_values(int size, t_elem **a, t_info *info);
 void set_info(t_elem *dup, t_info *info, int size);
-void push_median(t_elem **a, t_elem **b, int size);
-void    push_presort(t_info *info, t_elem **a, t_elem **b);
+void push_median(t_info info, t_elem **a, t_elem **b);
+void push_presort(t_info info, t_elem **a, t_elem **b);
+void    calc_ops(t_elem **a, t_elem **b, t_moves *moves);
+void reset_moves(t_moves *moves);
 
 /* ================================ MEMORY ================================= */
 void    free_strarray(char **array);

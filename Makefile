@@ -18,8 +18,8 @@ NAME		= push_swap
 
 SRC		= $(addprefix $(SRC_DIR)/, main.c check_input.c check_input2.c \
 	stack_init.c stack_utils.c sort_check.c sort_nano.c sort_any.c \
-	quicksort.c sort_any_targets.c mem_utils.c \
-	op_push.c op_reverse_rotate.c op_rotate.c op_swap.c)
+	quicksort.c sort_any_key_val.c sort_any_calc_ops.c sort_any_calc_ops2.c \
+	mem_utils.c op_push.c op_reverse_rotate.c op_rotate.c op_swap.c)
 OBJS	 	= $(addprefix $(BUILD_DIR)/, $(notdir $(SRC:.c=.o)))
 LIBFT_ARC	= $(LIBFT_DIR)/libft.a
 
@@ -134,7 +134,7 @@ help:	## Display this help info
 		substr($$0, 5) } ' Makefile
 	@printf "\n"
 
-.PHONY: all clean fclean re help
+.PHONY: all clean fclean re help install valgrind norm
 
 
 # ============================================================================ #

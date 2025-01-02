@@ -8,6 +8,7 @@
 */.build
 
 push_swap
+checker_Mac
 
 */*/*.a
 */*.swp
