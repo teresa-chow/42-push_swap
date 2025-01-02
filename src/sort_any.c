@@ -34,10 +34,13 @@ static void    sort_remainder(t_info info, t_elem **a, t_elem **b)
     t_elem  *min;
 
     ft_bzero(&moves, sizeof(t_moves));
+    moves.cost = INT_MAX;
     while (*b)
     {
         calc_ops(a, b, &moves);
         make_moves(moves, a, b);
+        ft_bzero(&moves, sizeof(t_moves));
+        moves.cost = INT_MAX;
     }
     reset_index(a);
     min = stack_min(a);

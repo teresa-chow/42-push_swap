@@ -45,6 +45,7 @@ typedef struct s_moves
 	int	rrb;
 	int	rr;
 	int	rrr;
+	int	cost;
 }	t_moves;
 
 
@@ -95,13 +96,14 @@ void	sort_any(int size, t_elem **a, t_elem **b);
 void    quicksort(t_elem **stack, t_elem *head, t_elem *tail);
 // Utils - General use
 int	sort_check(t_elem **stack);
-// Utils – Stacks bigger than 5 elements
+// Algorithm utils – Stacks bigger than 5 elements
 void find_key_values(int size, t_elem **a, t_info *info);
 void set_info(t_elem *dup, t_info *info, int size);
 void push_median(t_info info, t_elem **a, t_elem **b);
 void push_presort(t_info info, t_elem **a, t_elem **b);
 void    calc_ops(t_elem **a, t_elem **b, t_moves *moves);
-void reset_moves(t_moves *moves);
+void sum_ops(t_moves *option);
+void	choose_option(t_moves option, t_moves *moves);
 
 /* ================================ MEMORY ================================= */
 void    free_strarray(char **array);

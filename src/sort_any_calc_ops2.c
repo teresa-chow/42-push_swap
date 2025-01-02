@@ -12,12 +12,23 @@
 
 #include "../include/push_swap.h"
 
-void reset_moves(t_moves *moves)
+void sum_ops(t_moves *option)
 {
-	moves->ra = 0;
-	moves->rra = 0;
-	moves->rb = 0;
-	moves->rrb = 0;
-	moves->rr = 0;
-	moves->rrr = 0;
+	option->cost += option->ra;
+	option->cost += option->rra;
+	option->cost += option->rb;
+	option->cost += option->rrb;
+	option->cost += option->rr;
+	option->cost += option->rrr;
+}
+
+void	choose_option(t_moves option, t_moves *moves)
+{
+	moves->ra = option.ra;
+	moves->rra = option.rra;
+	moves->rb = option.rb;
+	moves->rrb = option.rrb;
+	moves->rr = option.rr;
+	moves->rrr = option.rrr;
+	moves->cost = option.cost;
 }
