@@ -42,6 +42,8 @@ static void	sort_remainder(t_info info, t_elem **a, t_elem **b)
 		ft_bzero(&moves, sizeof(t_moves));
 		moves.cost = INT_MAX;
 	}
+	if (!sort_check(a))
+		printf("ARGHHH!\n");
 	reset_index(a);
 	min = stack_min(a);
 	while (*a != min)
