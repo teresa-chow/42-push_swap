@@ -26,7 +26,11 @@ void	check_nodup(int argc, char **argv)
 		while (argv[cmp])
 		{
 			if (ft_atol(argv[i]) == ft_atol(argv[cmp]))
+			{
+				if (argc == 2)
+					free_strarray(argv);
 				printerr_exit();
+			}
 			cmp++;
 		}
 		i++;

@@ -12,8 +12,8 @@
 
 #include "../include/push_swap.h"
 
-static void	check_syntax(char *arg);
-static void	check_limits(char *arg);
+static int	check_syntax(char *arg);
+static int	check_limits(char *arg);
 
 char	**check_input(int argc, char **argv)
 {
@@ -21,8 +21,8 @@ char	**check_input(int argc, char **argv)
 
 	if (argc == 2 && !check_space(argv[1]))
 	{
-		check_syntax(argv[1]);
-		check_limits(argv[1]);
+		if (!check_syntax(argv[1]) || !check_limits(argv[1]))
+			printerr_exit();
 		exit (EXIT_SUCCESS);
 	}
 	if (argc == 2 && check_space(argv[1]))
@@ -36,39 +36,43 @@ char	**check_input(int argc, char **argv)
 	i = 1;
 	while (argv[i])
 	{
-		check_syntax(argv[i]);
-		check_limits(argv[i]);
+		if (!check_syntax(argv[i]) || !check_limits(argv[i]))
+		{
+			if (argc == 2)
+				free_strarray(argv);
+			printerr_exit();
+		}
 		i++;
 	}
 	return (argv);
 }
 
-static void	check_syntax(char *arg)
+static int	check_syntax(char *arg)
 {
 	int	i;
 
 	if ((arg[0] != '+' && arg[0] != '-') && (!ft_isdigit(arg[0])))
-		printerr_exit();
+		return (0);
 	if ((arg[0] == '+' || arg[0] == '-') && (!ft_isdigit(arg[1])))
-		printerr_exit();
+		return (0);
 	i = 1;
 	while (arg[i])
 	{
 		if (!ft_isdigit(arg[i]))
-			printerr_exit();
+			return (0);
 		i++;
 	}
-	return ;
+	return (1);
 }
 
-static void	check_limits(char *arg)
+static int	check_limits(char *arg)
 {
 	long	input;
 
 	input = ft_atol(arg);
 	if (input < INT_MIN || input > INT_MAX)
-		printerr_exit();
-	return ;
+		return (0);
+	return (1);
 }
 
 long	ft_atol(const char *str)

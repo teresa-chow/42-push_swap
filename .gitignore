@@ -9,6 +9,7 @@
 
 push_swap
 checker_Mac
+checker_linux
 
 */*/*.a
 */*.swp

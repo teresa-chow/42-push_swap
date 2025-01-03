@@ -22,6 +22,7 @@ void    free_strarray(char **array)
         free(array[i]);
         i++;
     }
+    free(array);
     return ;
 }
 

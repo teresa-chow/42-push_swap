@@ -45,7 +45,7 @@ static void   stack_fill(int argc, char **argv, t_elem **a)
         current->i = index;
         if (!argv[i + 1])
             break;
-        add_elem(current);
+        add_elem(a, current);
         current = current->next;
         i++;
         index++;
@@ -53,13 +53,16 @@ static void   stack_fill(int argc, char **argv, t_elem **a)
     return ;
 }
 
-void add_elem(t_elem *elem)
+void add_elem(t_elem **stack, t_elem *elem)
 {
     t_elem *new;
 
     new = ft_calloc(1, sizeof(t_elem));
     if (!new)
-        printerr_exit(); //should free previously alloc'ed nodes
+    {
+        free_stack(stack);
+        printerr_exit();
+    }
     elem->next = new;
     new->prev = elem;
     elem = new;
