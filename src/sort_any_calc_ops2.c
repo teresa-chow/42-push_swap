@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_any_moves2.c                                  :+:      :+:    :+:   */
+/*   sort_any_calc_ops2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchow-so  <tchow-so@student.42porto.>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 13:46:03 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/12/12 13:46:03 by tchow-so         ###   ########.fr       */
+/*   Updated: 2025/01/03 12:10:52 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void sum_ops(t_moves *option)
+void	sum_ops(t_moves *option)
 {
 	option->cost += option->ra;
 	option->cost += option->rra;

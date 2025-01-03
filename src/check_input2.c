@@ -6,7 +6,7 @@
 /*   By: tchow-so  <tchow-so@student.42porto.>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 09:22:13 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/12/03 09:22:13 by tchow-so         ###   ########.fr       */
+/*   Updated: 2025/01/03 11:46:08 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	check_space(char *str)
 			return (1);
 		i++;
 	}
-	return (0);	
+	return (0);
 }
 
 void	printerr_exit(void)

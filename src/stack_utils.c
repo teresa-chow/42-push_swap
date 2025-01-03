@@ -6,7 +6,7 @@
 /*   By: tchow-so <tchow-so@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 18:16:05 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/08/08 18:01:42 by tchow-so         ###   ########.fr       */
+/*   Updated: 2025/01/03 12:32:32 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	stack_size(t_elem **stack)
 {
 	t_elem	*current;
-	int	size;
+	int		size;
 
 	if (!stack)
 		return (0);
@@ -31,7 +31,7 @@ int	stack_size(t_elem **stack)
 
 t_elem	*stack_last(t_elem **stack)
 {
-	int				last_index;
+	int		last_index;
 	t_elem	*current;
 	t_elem	*last_node;
 
@@ -45,7 +45,7 @@ t_elem	*stack_last(t_elem **stack)
 
 t_elem	*stack_max(t_elem **stack)
 {
-	int				max;
+	int		max;
 	t_elem	*current;
 	t_elem	*max_node;
 
@@ -67,7 +67,7 @@ t_elem	*stack_max(t_elem **stack)
 
 t_elem	*stack_min(t_elem **stack)
 {
-	int				min;
+	int		min;
 	t_elem	*current;
 	t_elem	*min_node;
 
@@ -88,21 +88,21 @@ t_elem	*stack_min(t_elem **stack)
 	return (min_node);
 }
 
-void   stack_dup(t_elem **stack, t_elem **dup)
+void	stack_dup(t_elem **stack, t_elem **dup)
 {
-    t_elem  *current;
-    t_elem  *curr_dup;
+	t_elem	*current;
+	t_elem	*curr_dup;
 
-    current = *stack;
-    curr_dup = *dup;
-    while (current)
-    {
-        curr_dup->val = current->val;
-        if (current->next == NULL)
-            break ;
-        add_elem(stack, curr_dup);
-        curr_dup = curr_dup->next;
-        current = current->next;
-    }
-    return ;
+	current = *stack;
+	curr_dup = *dup;
+	while (current)
+	{
+		curr_dup->val = current->val;
+		if (current->next == NULL)
+			break ;
+		add_elem(stack, curr_dup);
+		curr_dup = curr_dup->next;
+		current = current->next;
+	}
+	return ;
 }

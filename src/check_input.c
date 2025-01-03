@@ -6,19 +6,39 @@
 /*   By: tchow-so  <tchow-so@student.42porto.>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 09:29:20 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/12/02 14:21:09 by tchow-so         ###   ########.fr       */
+/*   Updated: 2025/01/03 11:48:10 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+static char	**check_argc2(int argc, char **argv, int *i);
 static int	check_syntax(char *arg);
 static int	check_limits(char *arg);
 
-char	**check_input(int argc, char **argv)
+char	**check_input(int argc, char **argv) //too many lines
 {
 	int	i;
 
+	if (argc == 2)
+		argv = check_argc2(argc, argv, &i);
+	check_nodup(argc, argv);
+	i = 1;
+	while (argv[i])
+	{
+		if (!check_syntax(argv[i]) || !check_limits(argv[i]))
+		{
+			if (argc == 2)
+				free_strarray(argv);
+			printerr_exit();
+		}
+		i++;
+	}
+	return (argv);
+}
+
+static char	**check_argc2(int argc, char **argv, int *i)
+{
 	if (argc == 2 && !check_space(argv[1]))
 	{
 		if (!check_syntax(argv[1]) || !check_limits(argv[1]))
@@ -31,18 +51,6 @@ char	**check_input(int argc, char **argv)
 		if (!argv)
 			printerr_exit();
 		i = 0;
-	}
-	check_nodup(argc, argv);
-	i = 1;
-	while (argv[i])
-	{
-		if (!check_syntax(argv[i]) || !check_limits(argv[i]))
-		{
-			if (argc == 2)
-				free_strarray(argv);
-			printerr_exit();
-		}
-		i++;
 	}
 	return (argv);
 }
@@ -78,8 +86,8 @@ static int	check_limits(char *arg)
 long	ft_atol(const char *str)
 {
 	long	result;
-	int	sign;
-	int	i;
+	int		sign;
+	int		i;
 
 	result = 0;
 	sign = 1;

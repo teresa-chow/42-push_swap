@@ -6,7 +6,7 @@
 /*   By: tchow-so <tchow-so@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 21:38:38 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/07/29 15:15:09 by tchow-so         ###   ########.fr       */
+/*   Updated: 2025/01/03 11:54:29 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	pa(t_elem **a, t_elem **b)
 void	pb(t_elem **a, t_elem **b)
 {
 	if (!*b)
-	{	
+	{
 		*b = *a;
 		*a = (*a)->next;
 		(*b)->next = NULL;
