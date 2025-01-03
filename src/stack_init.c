@@ -67,3 +67,19 @@ void	add_elem(t_elem **stack, t_elem *elem)
 	new->prev = elem;
 	elem = new;
 }
+
+void	add_elem_dup(t_elem **stack, t_elem **dup, t_elem *elem)
+{
+	t_elem	*new;
+
+	new = ft_calloc(1, sizeof(t_elem));
+	if (!new)
+	{
+		free_stack(dup);
+		free_stack(stack);
+		printerr_exit();
+	}
+	elem->next = new;
+	new->prev = elem;
+	elem = new;
+}

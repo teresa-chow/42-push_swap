@@ -82,6 +82,7 @@ void	sort_five(t_elem **a, t_elem **b)
 		ra(a);
 	if (last->prev == min)
 		rra(a);
+	last = stack_last(a);
 	if (last == min)
 		rra(a);
 	if (sort_check(a))

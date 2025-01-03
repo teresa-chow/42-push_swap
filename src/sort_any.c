@@ -55,17 +55,17 @@ static void	sort_remainder(t_info info, t_elem **a, t_elem **b)
 
 static void	make_moves(t_moves moves, t_elem **a, t_elem **b)
 {
-	while (--moves.rr >= 0)
+	while (moves.rr-- > 0)
 		rr(a, b);
-	while (--moves.rrr >= 0)
+	while (moves.rrr-- > 0)
 		rrr(a, b);
-	while (--moves.rb >= 0)
+	while (moves.rb-- > 0)
 		rb(b);
-	while (--moves.rrb >= 0)
+	while (moves.rrb-- > 0)
 		rrb(b);
-	while (--moves.ra >= 0)
+	while (moves.ra-- > 0)
 		ra(a);
-	while (--moves.rra >= 0)
+	while (moves.rra-- > 0)
 		rra(a);
 	pa(a, b);
 }

@@ -100,7 +100,7 @@ void	stack_dup(t_elem **stack, t_elem **dup)
 		curr_dup->val = current->val;
 		if (current->next == NULL)
 			break ;
-		add_elem(stack, curr_dup);
+		add_elem_dup(stack, dup, curr_dup);
 		curr_dup = curr_dup->next;
 		current = current->next;
 	}
