@@ -14,17 +14,24 @@
 
 #include "../include/push_swap.h"
 
-static void	swap(t_elem **head)
+static void	swap(t_elem **stack)
 {
 	t_elem	*tmp;
+	int		size;
 
-	tmp = (*head)->next->next;
-	*head = (*head)->next;
-	(*head)->next = (*head)->prev;
-	(*head)->next->next = tmp;
-	(*head)->prev = NULL;
-	(*head)->next->prev = *head;
-	tmp->prev = (*head)->next;
+	tmp = NULL;
+	size = stack_size(stack);
+	if (size != 2)
+		tmp = (*stack)->next->next;
+	*stack = (*stack)->next;
+	(*stack)->next = (*stack)->prev;
+	(*stack)->next->next = tmp;
+	(*stack)->prev = NULL;
+	if (size != 2)
+	{
+		(*stack)->next->prev = *stack;
+		tmp->prev = (*stack)->next;
+	}
 	return ;
 }
 
