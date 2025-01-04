@@ -45,6 +45,7 @@ typedef struct s_moves
 	int	rrb;
 	int	rr;
 	int	rrr;
+	int	target;
 	int	cost;
 }	t_moves;
 

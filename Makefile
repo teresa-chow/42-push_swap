@@ -107,10 +107,12 @@ norm:	## Execute norminette
 	norminette $(SRC_DIR)
 
 
-##@ LEAK CHECK
+##@ TEST SORTING ALGORITHM
 
-valgrind:	## Run valgrind
-	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) 3 2 1
+test:	## Run test with provided set of numbers (NOTE: 'export ARG' first)
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) $(ARG) \
+	&& ./$(NAME) $(ARG) | wc -l \
+	&& ./$(NAME) $(ARG) | ./checker_linux $(ARG)
 
 
 ##@ TOOL INSTALLATION

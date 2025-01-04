@@ -18,7 +18,7 @@
 /* move top of b to top of a */
 void	pa(t_elem **a, t_elem **b)
 {
-	if (!b)
+	if (!*b)
 		return ;
 	(*a)->prev = *b;
 	if ((*b)->next)

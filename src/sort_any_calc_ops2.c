@@ -30,5 +30,6 @@ void	choose_option(t_moves option, t_moves *moves)
 	moves->rrb = option.rrb;
 	moves->rr = option.rr;
 	moves->rrr = option.rrr;
+	moves->target = option.target;
 	moves->cost = option.cost;
 }

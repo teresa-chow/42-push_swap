@@ -12,16 +12,19 @@
 
 #include "../include/push_swap.h"
 
-static char	**check_argc2(int argc, char **argv, int *i);
+static char	**check_argc2(int argc, char **argv);
 static int	check_syntax(char *arg);
 static int	check_limits(char *arg);
 
-char	**check_input(int argc, char **argv) //too many lines
+char	**check_input(int argc, char **argv)
 {
 	int	i;
 
 	if (argc == 2)
-		argv = check_argc2(argc, argv, &i);
+	{
+		argv = check_argc2(argc, argv);
+		i = 0;
+	}
 	check_nodup(argc, argv);
 	i = 1;
 	while (argv[i])
@@ -37,7 +40,7 @@ char	**check_input(int argc, char **argv) //too many lines
 	return (argv);
 }
 
-static char	**check_argc2(int argc, char **argv, int *i)
+static char	**check_argc2(int argc, char **argv)
 {
 	if (argc == 2 && !check_space(argv[1]))
 	{
@@ -50,7 +53,6 @@ static char	**check_argc2(int argc, char **argv, int *i)
 		argv = ft_split(argv[1], ' ');
 		if (!argv)
 			printerr_exit();
-		i = 0;
 	}
 	return (argv);
 }

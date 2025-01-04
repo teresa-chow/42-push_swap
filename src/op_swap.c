@@ -16,11 +16,15 @@
 
 static void	swap(t_elem **head)
 {
+	t_elem	*tmp;
+
+	tmp = (*head)->next->next;
 	*head = (*head)->next;
-	(*head)->prev->next = (*head)->next;
-	(*head)->prev->prev = *head;
 	(*head)->next = (*head)->prev;
+	(*head)->next->next = tmp;
 	(*head)->prev = NULL;
+	(*head)->next->prev = *head;
+	tmp->prev = (*head)->next;
 	return ;
 }
 
