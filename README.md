@@ -34,12 +34,28 @@ ___
     cd push_swap
     make
     ```
+
+3. Execute `push_swap` program
+    ```bash
+    ./push_swap "<random set of integers>"
+    ```
+    or
+   ```bash
+   ./push_swap 0 5 -1 3
+   ```
+   
+4. To check if the program is sorting the set of numbers correctly, export the variable `ARG` and test the program
+   ```bash
+   export ARG="<random set of integers>"
+   make test
+   ```
+   
 ___
 
 </br>
 
 ### License
-This work is published under the terms of .
+This work is published under the terms of [42 Unlicense](./LICENSE).
 
 </br>
 
