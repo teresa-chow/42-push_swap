@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-static char	**check_argc2(int argc, char **argv);
+static char	**check_argc2(char **argv);
 static int	check_syntax(char *arg);
 static int	check_limits(char *arg);
 
@@ -22,7 +22,7 @@ char	**check_input(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		argv = check_argc2(argc, argv);
+		argv = check_argc2(argv);
 		i = 0;
 	}
 	check_nodup(argc, argv);
@@ -40,15 +40,15 @@ char	**check_input(int argc, char **argv)
 	return (argv);
 }
 
-static char	**check_argc2(int argc, char **argv)
+static char	**check_argc2(char **argv)
 {
-	if (argc == 2 && !check_space(argv[1]))
+	if (!check_space(argv[1]))
 	{
 		if (!check_syntax(argv[1]) || !check_limits(argv[1]))
 			printerr_exit();
 		exit (EXIT_SUCCESS);
 	}
-	if (argc == 2 && check_space(argv[1]))
+	if (check_space(argv[1]))
 	{
 		argv = ft_split(argv[1], ' ');
 		if (!argv)
