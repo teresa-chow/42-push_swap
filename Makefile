@@ -136,7 +136,7 @@ help:	## Display this help info
 		substr($$0, 5) } ' Makefile
 	@printf "\n"
 
-.PHONY: all clean fclean re help install valgrind norm
+.PHONY: all clean fclean re norm test install help
 
 
 # ============================================================================ #
