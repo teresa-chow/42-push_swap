@@ -44,12 +44,39 @@ ___
    ./push_swap 0 5 -1 3
    ```
    
-4. To check if the program is sorting the set of numbers correctly, export the variable `ARG` and test the program
+4. To check if the program is sorting different sets of numbers correctly, export the variable `ARG` and test the program (repeat as needed)
    ```bash
    export ARG="<random set of integers>"
    make test
    ```
-   
+
+___
+
+</br>
+
+## Approach
+
+For stacks of up to 5 elements, a brute force approach is used.
+Otherwise, for bigger sets, steps taken are the following:
+
+#### I. Find key values: median and 5 higher values
+- Find the median of the data set. Here, if the given data set has an even number of observations, we have considered the upper middle value to be the "median".
+- Find the 5 bigger values in the given data set.
+
+#### II. Push median to stack b
+- According to the position of the median value in the stack, rotate it (if in the top half of the stack) or reverse rotate it (if in the bottom half).
+- Push it to stack b.
+
+#### III. Push other elements to stack b
+- Push other elements to stack b, leaving the 5 higher values in stack a.
+- Check if the element is above or below median. If above, rotate stack b after pushing, to have values above median in the bottom half of stack b.
+- Sort the 5 remaining values in stack a.
+
+#### IV. Evaluate operation cost and move elements accordingly
+- Find the next higher value in stack a to every node in stack b and calculate movement cost (higher number of necessary operations = higher cost).
+- Choose to move the element with an associated lower cost.
+- Repeat this step until stack b is empty again.
+
 ___
 
 </br>
