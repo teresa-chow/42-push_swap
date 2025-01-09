@@ -7,13 +7,13 @@ ___
 
 
 ### Table of contents
-[Subject notes](#pencil2-subject-notes) · [Usage](#compass-usage) · [License](#license)
+[Subject notes](#subject-notes) · [Usage](#usage) · [License](#license)
 
 ___
 
 </br>
 
-# :pencil2: Subject notes
+# Subject notes
 
 Notes on the subject and further reading : [here](https://github.com/teresa-chow/42-push_swap/wiki).
 
@@ -21,7 +21,7 @@ ___
 
 </br>
 
-# :compass: Usage
+# Usage
 ## Setup and compilation
 
 1. Clone repository
